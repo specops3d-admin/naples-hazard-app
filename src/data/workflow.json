@@ -1,0 +1,801 @@
+{
+  "meta": {
+    "importedAt": "2026-08-01T21:34:07.690Z",
+    "sourceFile": "source-files/Naples_Group_Project_Workflow_Google_Sheets.xlsx",
+    "sheets": [
+      "Team Dashboard",
+      "Task Assignments",
+      "Final Slide Plan",
+      "Timeline & Handoffs",
+      "Merge Checklist",
+      "Source Tracker"
+    ],
+    "progressNote": "Progress values are calculated from Status fields in the application, not from Excel formulas."
+  },
+  "teamDashboard": {
+    "title": "Naples, Italy Hazards Assessment — Group Workflow",
+    "subtitle": "Google Sheets-ready team tracker for a five-member, 10-minute city-council presentation",
+    "projectSummary": {
+      "assignedCity": "Naples, Italy",
+      "audience": "Naples City Council; assume no prior scientific knowledge",
+      "finalProduct": "One shared slide deck for a 10-minute presentation",
+      "targetLength": "18 slides: title + 16 content slides + references",
+      "bigQuestion": "How do Earth systems influence the hazards present to people living in different locations?",
+      "decisionQuestion": "Which hazards are of greatest concern in Naples, and what actions should the city take to reduce risk?"
+    },
+    "progressSummary": {
+      "teamMembers": 5,
+      "contentSlides": 16,
+      "assignmentsComplete": 0,
+      "assignmentsInProgress": 0,
+      "readyForReview": 0,
+      "notStarted": 5,
+      "overallCompletion": 0
+    },
+    "members": [
+      {
+        "member": "Member 1",
+        "naplesSection": "Tectonics & geography",
+        "finalSlides": "2–4",
+        "status": "Not Started",
+        "progress": 0,
+        "primaryHandoff": "Map-based Naples setting summary"
+      },
+      {
+        "member": "Member 2",
+        "naplesSection": "Earthquakes & ground response",
+        "finalSlides": "5–7",
+        "status": "Not Started",
+        "progress": 0,
+        "primaryHandoff": "Earthquake risk and exposure synthesis"
+      },
+      {
+        "member": "Member 3",
+        "naplesSection": "Volcanoes",
+        "finalSlides": "8–10",
+        "status": "Not Started",
+        "progress": 0,
+        "primaryHandoff": "Volcanic risk and evacuation-zone summary"
+      },
+      {
+        "member": "Member 4",
+        "naplesSection": "Climate change",
+        "finalSlides": "11–13",
+        "status": "Not Started",
+        "progress": 0,
+        "primaryHandoff": "2050/2100 climate and coastal-risk summary"
+      },
+      {
+        "member": "Member 5",
+        "naplesSection": "Priorities, mitigation & integration",
+        "finalSlides": "14–17",
+        "status": "Not Started",
+        "progress": 0,
+        "primaryHandoff": "Final ranking, action plan, and deck merge"
+      }
+    ],
+    "teamWorkingRules": [
+      "Each member works only in the assigned section until peer review.",
+      "Reuse and condense the existing Naples draft instead of rebuilding every slide.",
+      "Every content slide needs a readable visual, a one-sentence takeaway, and an author-year citation at the bottom.",
+      "Use plain language appropriate for city council members; explain scientific terms briefly.",
+      "Member 5 merges the deck after each section is marked Ready for Review or Complete."
+    ]
+  },
+  "taskAssignments": {
+    "title": "Five-Member Naples Work Assignment",
+    "assignments": [
+      {
+        "member": "Member 1",
+        "section": "Naples tectonic setting and geography",
+        "finalSlides": "2–4",
+        "draftSlidesToReuse": "2–6",
+        "requiredContent": "Explain Africa/Nubia–Eurasia convergence, Adriatic/Apulian microplate influence, boundary style, Naples topography, and how the setting produces earthquake and volcanic hazards.",
+        "visualsRequired": "Plate map; Naples regional map showing Campi Flegrei, Vesuvius, Gulf of Naples, and Apennines.",
+        "deliverable": "Three polished slides with concise speaker notes and citations.",
+        "dependenciesHandoff": "Send Member 2 the tectonic explanation and base-map labels; send Member 5 the one-sentence Part I takeaway.",
+        "status": "Not Started",
+        "priority": "High",
+        "progress": 0,
+        "actualDueDate": "",
+        "memberFileNotesLink": ""
+      },
+      {
+        "member": "Member 2",
+        "section": "Earthquakes, faults, ground response, and exposure",
+        "finalSlides": "5–7",
+        "draftSlidesToReuse": "9–13",
+        "requiredContent": "Combine earthquake type/location/magnitude/frequency, faults, surface materials, shaking amplification, liquefaction, landslides, coastal water hazards, population exposure, and economic consequences.",
+        "visualsRequired": "IRIS/EarthScope seismicity map; fault map; geology/ground-response map; exposure symbols.",
+        "deliverable": "Three polished slides with one map-led message per slide and citations.",
+        "dependenciesHandoff": "Use Member 1 tectonic setting. Provide Member 5 with earthquake score inputs and loss assumptions.",
+        "status": "Not Started",
+        "priority": "High",
+        "progress": 0,
+        "actualDueDate": "",
+        "memberFileNotesLink": ""
+      },
+      {
+        "member": "Member 3",
+        "section": "Volcanoes and volcanic exposure",
+        "finalSlides": "8–10",
+        "draftSlidesToReuse": "17–21",
+        "requiredContent": "Cover Campi Flegrei, Vesuvius, and Ischia; volcano type/location; photos; eruption history; 100-year probability outlook; hazards; red/yellow zones; exposed population and disaster cost.",
+        "visualsRequired": "Volcano location map; Vesuvius and Campi Flegrei images; eruption timeline; evacuation-zone map.",
+        "deliverable": "Three polished slides comparing the three volcanic systems.",
+        "dependenciesHandoff": "Provide Member 5 with volcanic priority scores, population figures, and mitigation needs.",
+        "status": "Not Started",
+        "priority": "High",
+        "progress": 0,
+        "actualDueDate": "",
+        "memberFileNotesLink": ""
+      },
+      {
+        "member": "Member 4",
+        "section": "Climate change, sea-level rise, flooding, heat, and drought",
+        "finalSlides": "11–13",
+        "draftSlidesToReuse": "22–23",
+        "requiredContent": "Present 2050 and 2100 temperature/precipitation projections with confidence ranges; sea-level-rise range; compound coastal flooding; drought/heat impacts; implications for the port, drainage, health, utilities, and tourism.",
+        "visualsRequired": "Climate projection graph/map; coastal inundation/flood map; impact pathway diagram.",
+        "deliverable": "Three polished slides connecting projections directly to Naples neighborhoods and infrastructure.",
+        "dependenciesHandoff": "Provide Member 5 with climate hazard score inputs, affected areas, and realistic mitigation actions.",
+        "status": "Not Started",
+        "priority": "High",
+        "progress": 0,
+        "actualDueDate": "",
+        "memberFileNotesLink": ""
+      },
+      {
+        "member": "Member 5",
+        "section": "Hazard ranking, mitigation, conclusion, and integration",
+        "finalSlides": "14–17 plus 1 and 18",
+        "draftSlidesToReuse": "25–31",
+        "requiredContent": "Build a four-factor scoring algorithm; rank Campi Flegrei, major earthquake, Vesuvius, and climate flood/heat/drought; summarize human/economic costs; present a 10-year multi-hazard program, budget, effectiveness, cost-benefit, and call to action.",
+        "visualsRequired": "Priority matrix; impact table; 10-year timeline; cost-benefit graphic.",
+        "deliverable": "Four content slides; merge all sections; title slide; references; final quality and timing review.",
+        "dependenciesHandoff": "Wait for all members to mark sections Ready for Review. Resolve duplicated content and standardize citations/design.",
+        "status": "Not Started",
+        "priority": "High",
+        "progress": 0,
+        "actualDueDate": "",
+        "memberFileNotesLink": ""
+      }
+    ]
+  },
+  "finalSlidePlan": {
+    "title": "Condensed 18-Slide Naples Presentation Plan",
+    "slides": [
+      {
+        "finalNumber": 1,
+        "slideTitle": "Title: Naples, Italy Hazards Assessment",
+        "owner": "Shared / Member 5",
+        "requiredContentTakeaway": "City, team names, course, and one strong Naples image.",
+        "suggestedVisual": "Vesuvius behind Naples waterfront.",
+        "existingDraftSlides": "1",
+        "citationSourceCheck": "Image credit and source listed.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 2,
+        "slideTitle": "Tectonic plates shaping Naples",
+        "owner": "Member 1",
+        "requiredContentTakeaway": "Africa/Nubia–Eurasia convergence, Adriatic/Apulian microplate, and mixed convergent/extension setting.",
+        "suggestedVisual": "Central Mediterranean plate map with motion arrows.",
+        "existingDraftSlides": "2",
+        "citationSourceCheck": "Author-year citation at bottom.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 3,
+        "slideTitle": "Topography and geography concentrate risk",
+        "owner": "Member 1",
+        "requiredContentTakeaway": "Naples lies between Campi Flegrei, Vesuvius, the Gulf of Naples, and the Apennines; dense development overlaps hazardous terrain.",
+        "suggestedVisual": "Regional map with labeled volcanic and geographic features.",
+        "existingDraftSlides": "3",
+        "citationSourceCheck": "Map source and image credit.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 4,
+        "slideTitle": "How the tectonic setting creates Naples hazards",
+        "owner": "Member 1",
+        "requiredContentTakeaway": "Connect plate motion to regional earthquakes, magma generation, hydrothermal activity, and shallow volcanic earthquakes.",
+        "suggestedVisual": "Cause-and-effect diagram plus small hazard icons.",
+        "existingDraftSlides": "4–6",
+        "citationSourceCheck": "Cite tectonic, earthquake, and volcanic sources.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 5,
+        "slideTitle": "Earthquake sources and expected activity",
+        "owner": "Member 2",
+        "requiredContentTakeaway": "Regional Southern Apennine earthquakes versus shallow Campi Flegrei/Ischia/Vesuvius events; magnitude and frequency ranges.",
+        "suggestedVisual": "IRIS/EarthScope regional seismicity map.",
+        "existingDraftSlides": "9",
+        "citationSourceCheck": "IRIS/USGS/INGV citation.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 6,
+        "slideTitle": "Faults, surface materials, and shaking response",
+        "owner": "Member 2",
+        "requiredContentTakeaway": "Major regional faults; local volcanic structures; tuff, pyroclastics, alluvium/fill, and carbonate bedrock response.",
+        "suggestedVisual": "Combined fault and ground-response map.",
+        "existingDraftSlides": "10–11",
+        "citationSourceCheck": "Label generalized map clearly.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 7,
+        "slideTitle": "Secondary earthquake hazards and exposure",
+        "owner": "Member 2",
+        "requiredContentTakeaway": "Shaking amplification, liquefaction, landslides/rockfall, harbor seiche/tsunami, exposed communities, infrastructure, and economic loss.",
+        "suggestedVisual": "Hazard/exposure map with port, hospitals, and dense municipalities.",
+        "existingDraftSlides": "12–13",
+        "citationSourceCheck": "Use supported figures; label estimates.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 8,
+        "slideTitle": "Three volcanic systems around Naples",
+        "owner": "Member 3",
+        "requiredContentTakeaway": "Campi Flegrei caldera, Vesuvius stratovolcano, and Ischia volcanic island; explain why each creates different hazards.",
+        "suggestedVisual": "Location map and two representative images.",
+        "existingDraftSlides": "17–18",
+        "citationSourceCheck": "Image credits and GVP/INGV citations.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 9,
+        "slideTitle": "Eruption history and 100-year outlook",
+        "owner": "Member 3",
+        "requiredContentTakeaway": "Key eruptions from the Campanian Ignimbrite through 1944; explain uncertain but non-zero future eruption probability.",
+        "suggestedVisual": "Horizontal eruption timeline.",
+        "existingDraftSlides": "19",
+        "citationSourceCheck": "State that exact timing cannot be predicted.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 10,
+        "slideTitle": "Volcanic hazards, vulnerable zones, and cost",
+        "owner": "Member 3",
+        "requiredContentTakeaway": "Pyroclastic flows, ash/lapilli, bradyseism, gases, hydrothermal explosions, lahars; red-zone populations and economic disruption.",
+        "suggestedVisual": "Civil Protection zone map plus population callouts.",
+        "existingDraftSlides": "20–21",
+        "citationSourceCheck": "Distinguish official values from planning estimates.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 11,
+        "slideTitle": "Climate projections for 2050 and 2100",
+        "owner": "Member 4",
+        "requiredContentTakeaway": "Temperature rise, precipitation changes, confidence ranges, longer dry spells, and intense rainfall.",
+        "suggestedVisual": "Regional climate graph or map with 2050/2100 comparison.",
+        "existingDraftSlides": "22",
+        "citationSourceCheck": "Use model source and confidence range.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 12,
+        "slideTitle": "Sea-level rise, flooding, and drought",
+        "owner": "Member 4",
+        "requiredContentTakeaway": "AR6 sea-level range, local vertical land movement, compound flooding, drainage limits, and drought.",
+        "suggestedVisual": "Coastal inundation/flood-risk map.",
+        "existingDraftSlides": "23",
+        "citationSourceCheck": "Cite NASA/IPCC and regional study.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 13,
+        "slideTitle": "What climate change means for Naples",
+        "owner": "Member 4",
+        "requiredContentTakeaway": "Connect heat, flood, drought, wildfire, water stress, port exposure, tourism, health, and utilities to city decisions.",
+        "suggestedVisual": "Impact pathway from hazard to people and infrastructure.",
+        "existingDraftSlides": "22–23",
+        "citationSourceCheck": "Keep claims Naples-specific and cited.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 14,
+        "slideTitle": "Hazard-ranking method",
+        "owner": "Member 5",
+        "requiredContentTakeaway": "Explain 1–5 scoring for exposure, human cost, economic disruption, and urgency/probability.",
+        "suggestedVisual": "Four-factor scoring diagram or matrix.",
+        "existingDraftSlides": "25",
+        "citationSourceCheck": "Identify as a classroom planning tool.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 15,
+        "slideTitle": "Top four hazards and expected consequences",
+        "owner": "Member 5",
+        "requiredContentTakeaway": "Rank Campi Flegrei, major earthquake, Vesuvius, and climate flood/heat/drought; include people affected, casualties/displacement, and economic interruption.",
+        "suggestedVisual": "Compact comparison table or bubble chart.",
+        "existingDraftSlides": "26–27",
+        "citationSourceCheck": "Label scenario estimates and official values.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 16,
+        "slideTitle": "10-year Multi-Hazard Readiness and Retrofit Program",
+        "owner": "Member 5",
+        "requiredContentTakeaway": "Years 1–2 map/inspect; 2–5 protect lifelines; 3–10 drills, shelters, alerts, evacuation routes, and adaptation.",
+        "suggestedVisual": "Three-phase implementation timeline.",
+        "existingDraftSlides": "28",
+        "citationSourceCheck": "Cite Civil Protection and INGV context.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 17,
+        "slideTitle": "Cost-benefit and call to action",
+        "owner": "Member 5",
+        "requiredContentTakeaway": "Budget, avoided losses, lives/displacement reduced, first priorities, and a direct city-council decision request.",
+        "suggestedVisual": "Cost-versus-avoided-loss graphic and action box.",
+        "existingDraftSlides": "28–29",
+        "citationSourceCheck": "Mark budget as a planning range.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "finalNumber": 18,
+        "slideTitle": "References",
+        "owner": "Shared / Member 5",
+        "requiredContentTakeaway": "APA bibliography for every source used; include image credits and URLs.",
+        "suggestedVisual": "Clean one- or two-slide reference layout if needed.",
+        "existingDraftSlides": "30–31 plus source trackers",
+        "citationSourceCheck": "Cross-check every slide citation.",
+        "status": "Not Started",
+        "progress": 0
+      }
+    ]
+  },
+  "timelineAndHandoffs": {
+    "title": "Recommended 10-Day Workflow — Replace Day Numbers with Actual Dates",
+    "phases": [
+      {
+        "phase": "Kickoff",
+        "targetDay": "Day 1",
+        "owner": "All members",
+        "action": "Confirm roles, slide numbers, citation style, theme, and shared-folder structure.",
+        "requiredOutput": "Assigned rows completed.",
+        "dependsOn": "None",
+        "approvalHandoff": "Everyone confirms assignment.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "phase": "Source audit",
+        "targetDay": "Day 1–2",
+        "owner": "All members",
+        "action": "Review assigned draft slides and verify maps, figures, facts, and image credits.",
+        "requiredOutput": "Source list and missing-data notes.",
+        "dependsOn": "Kickoff",
+        "approvalHandoff": "Member 5 checks gaps.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "phase": "Research and condensation",
+        "targetDay": "Day 2–4",
+        "owner": "Members 1–4",
+        "action": "Condense each assigned section to three slides; remove repeated explanations and long paragraphs.",
+        "requiredOutput": "Slide outline and selected visuals.",
+        "dependsOn": "Source audit",
+        "approvalHandoff": "Peer partner reviews outline.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "phase": "Risk synthesis",
+        "targetDay": "Day 2–4",
+        "owner": "Member 5",
+        "action": "Prepare the scoring framework, collect human/economic inputs, and draft mitigation structure.",
+        "requiredOutput": "Priority table and plan outline.",
+        "dependsOn": "Inputs from Members 2–4",
+        "approvalHandoff": "All members validate scores.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "phase": "First slide draft",
+        "targetDay": "Day 5",
+        "owner": "All members",
+        "action": "Build assigned slides using the common template, citations, and one-sentence takeaways.",
+        "requiredOutput": "Individual slide section.",
+        "dependsOn": "Research and condensation",
+        "approvalHandoff": "Mark Ready for Review.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "phase": "Cross-review",
+        "targetDay": "Day 6",
+        "owner": "Peer pairs",
+        "action": "Check scientific accuracy, readability, citations, visuals, and overlap.",
+        "requiredOutput": "Review comments and corrections.",
+        "dependsOn": "First slide draft",
+        "approvalHandoff": "Owner resolves comments.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "phase": "Final section handoff",
+        "targetDay": "Day 7",
+        "owner": "Members 1–4",
+        "action": "Submit corrected slides, source list, and image credits to Member 5.",
+        "requiredOutput": "Section marked Complete.",
+        "dependsOn": "Cross-review",
+        "approvalHandoff": "Member 5 accepts or returns it.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "phase": "Deck merge",
+        "targetDay": "Day 8",
+        "owner": "Member 5",
+        "action": "Merge slides, standardize titles/fonts/colors, remove duplicates, and build references.",
+        "requiredOutput": "One integrated Naples deck.",
+        "dependsOn": "Final handoff",
+        "approvalHandoff": "All members review merged deck.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "phase": "Timing and audience edit",
+        "targetDay": "Day 9",
+        "owner": "All members",
+        "action": "Run through the deck for 10 minutes; simplify technical terms and cut unnecessary text.",
+        "requiredOutput": "Final 10-minute version.",
+        "dependsOn": "Deck merge",
+        "approvalHandoff": "Member 5 locks slide order.",
+        "status": "Not Started",
+        "progress": 0
+      },
+      {
+        "phase": "Final QA and submission",
+        "targetDay": "Day 10",
+        "owner": "Member 5 + one checker",
+        "action": "Run the rubric checklist, verify citations and links, test the file, and submit.",
+        "requiredOutput": "Submission-ready PPTX and backup PDF.",
+        "dependsOn": "Timing edit",
+        "approvalHandoff": "Team confirms final file.",
+        "status": "Not Started",
+        "progress": 0
+      }
+    ]
+  },
+  "mergeChecklist": {
+    "title": "Naples Final Deck Merge and Rubric Checklist",
+    "items": [
+      {
+        "category": "Content",
+        "checklistItem": "All required hazards are covered: tectonics, earthquakes, volcanoes, landslides/secondary hazards, flooding, and climate change.",
+        "owner": "Member 5",
+        "evidenceSlides": "Slides 2–13",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Content",
+        "checklistItem": "Four hazards are prioritized and justified against other hazards.",
+        "owner": "Member 5",
+        "evidenceSlides": "Slides 14–15",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Human impact",
+        "checklistItem": "Population affected and killed/injured/homeless or displaced ranges are shown for each top hazard.",
+        "owner": "Member 5",
+        "evidenceSlides": "Slide 15",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Economic impact",
+        "checklistItem": "Port, tourism, transport, utilities, hospitals, schools, housing, and business disruption are addressed.",
+        "owner": "Member 5",
+        "evidenceSlides": "Slides 7, 10, 13, 15",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Mitigation",
+        "checklistItem": "The strategy includes description, implementation needs, timeline, effectiveness, realistic cost, and cost-benefit.",
+        "owner": "Member 5",
+        "evidenceSlides": "Slides 16–17",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Visuals",
+        "checklistItem": "Every major claim is supported by a map, figure, timeline, table, or diagram rather than text alone.",
+        "owner": "All members",
+        "evidenceSlides": "Slides 2–17",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Audience",
+        "checklistItem": "Terms such as bradyseism, caldera, pyroclastic flow, liquefaction, and microzonation are explained in plain language.",
+        "owner": "All members",
+        "evidenceSlides": "All content slides",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Citations",
+        "checklistItem": "Every slide has author-year citation(s) in 8–10 pt text at the bottom.",
+        "owner": "All members",
+        "evidenceSlides": "Slides 2–17",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "References",
+        "checklistItem": "Every in-slide citation and image credit appears in the APA references, with no unused references.",
+        "owner": "Member 5",
+        "evidenceSlides": "Slide 18",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Consistency",
+        "checklistItem": "Fonts, title placement, colors, map labels, legends, units, and terminology are consistent.",
+        "owner": "Member 5",
+        "evidenceSlides": "Entire deck",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Accuracy",
+        "checklistItem": "Generalized classroom maps are labeled as generalized; scenario estimates are not presented as official forecasts.",
+        "owner": "Section owners",
+        "evidenceSlides": "Relevant slides",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Timing",
+        "checklistItem": "The complete deck can be explained in 10 minutes, averaging about 30–35 seconds per content slide.",
+        "owner": "All members",
+        "evidenceSlides": "Entire deck",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      },
+      {
+        "category": "Submission",
+        "checklistItem": "Final PPTX opens correctly; backup PDF is created; file name includes city, course, and team.",
+        "owner": "Member 5",
+        "evidenceSlides": "Final files",
+        "status": "Not Started",
+        "progress": 0,
+        "notesFixNeeded": ""
+      }
+    ]
+  },
+  "sourceTracker": {
+    "title": "Naples Source and Image-Credit Tracker",
+    "sources": [
+      {
+        "section": "Tectonics / Earthquakes",
+        "sourceOrganization": "Herman et al. (2015), USGS",
+        "primaryUse": "Mediterranean tectonics and seismicity",
+        "url": "https://pubs.usgs.gov/publication/ofr20101083Q",
+        "assignedTo": "Members 1–2",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Regional plate and earthquake context."
+      },
+      {
+        "section": "Earthquakes",
+        "sourceOrganization": "IRIS / EarthScope Interactive Earthquake Browser",
+        "primaryUse": "Earthquake location, depth, magnitude, and frequency map",
+        "url": "https://ds.iris.edu/ieb/",
+        "assignedTo": "Member 2",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Export a readable Naples/southern Italy map."
+      },
+      {
+        "section": "Tectonics",
+        "sourceOrganization": "Hasterok et al. (2022)",
+        "primaryUse": "Modern plate-boundary map and motion context",
+        "url": "https://doi.org/10.1016/j.earscirev.2022.104069",
+        "assignedTo": "Member 1",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Assignment-recommended source."
+      },
+      {
+        "section": "Volcanoes",
+        "sourceOrganization": "INGV — Campi Flegrei",
+        "primaryUse": "Monitoring, unrest, and volcanic context",
+        "url": "https://www.ingv.it/en/campi-flegrei",
+        "assignedTo": "Member 3",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Use for scientific description."
+      },
+      {
+        "section": "Volcanoes",
+        "sourceOrganization": "INGV — Ischia",
+        "primaryUse": "Volcanic and seismic context for Ischia",
+        "url": "https://www.ingv.it/en/ischia",
+        "assignedTo": "Member 3",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Use with Smithsonian GVP."
+      },
+      {
+        "section": "Volcanoes",
+        "sourceOrganization": "Smithsonian Global Volcanism Program",
+        "primaryUse": "Volcano profiles and eruption history",
+        "url": "https://volcano.si.edu/",
+        "assignedTo": "Member 3",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Track individual image credits."
+      },
+      {
+        "section": "Volcanoes / Mitigation",
+        "sourceOrganization": "De Natale, Troise, & Somma (2020)",
+        "primaryUse": "Naples volcanic risk and mitigation",
+        "url": "https://doi.org/10.5194/nhess-20-2037-2020",
+        "assignedTo": "Members 3 and 5",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Strong risk-synthesis source."
+      },
+      {
+        "section": "Volcanoes",
+        "sourceOrganization": "Italian Civil Protection — Phlegraean Fields planning map",
+        "primaryUse": "Red/yellow zones and evacuation planning",
+        "url": "https://mappe.protezionecivile.gov.it/en/risks-maps-and-dashboards/national-planning-phlegraean-fields/",
+        "assignedTo": "Members 3 and 5",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Preserve the official legend."
+      },
+      {
+        "section": "Volcanoes",
+        "sourceOrganization": "Italian Civil Protection — Vesuvius plan",
+        "primaryUse": "Vesuvius hazard and emergency planning",
+        "url": "https://www.protezionecivile.gov.it/en/approfondimento/national-civil-protection-plan-volcanic-risk-vesuvius/",
+        "assignedTo": "Members 3 and 5",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Official planning source."
+      },
+      {
+        "section": "Volcanoes / Tectonics",
+        "sourceOrganization": "NASA Earth Observatory — Campi Flegrei",
+        "primaryUse": "Caldera image and background",
+        "url": "https://science.nasa.gov/earth/earth-observatory/campi-flegrei-italy-80108/",
+        "assignedTo": "Members 1 and 3",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Record image caption and credit."
+      },
+      {
+        "section": "Volcanoes",
+        "sourceOrganization": "NASA Earth Observatory — A View of Vesuvius",
+        "primaryUse": "Vesuvius image and setting",
+        "url": "https://science.nasa.gov/earth/earth-observatory/a-view-of-vesuvius-149298/",
+        "assignedTo": "Member 3",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Record image caption and credit."
+      },
+      {
+        "section": "Volcanoes / Exposure",
+        "sourceOrganization": "USGS Yellowstone Volcano Observatory (2023)",
+        "primaryUse": "Naples volcano exposure and population context",
+        "url": "https://www.usgs.gov/observatories/yvo/news/living-active-volcanoes-back-yard-naples-metropolitan-area-italy",
+        "assignedTo": "Members 3 and 5",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Plain-language source for council audience."
+      },
+      {
+        "section": "Earthquakes",
+        "sourceOrganization": "INGV CPTI15–DBMI15",
+        "primaryUse": "Historical earthquake magnitude and intensity",
+        "url": "https://emidius.mi.ingv.it/CPTI15-DBMI15/index_en.htm",
+        "assignedTo": "Member 2",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Historical recurrence examples."
+      },
+      {
+        "section": "Climate",
+        "sourceOrganization": "Giugliano et al. (2022)",
+        "primaryUse": "Campania temperature and precipitation projections",
+        "url": "https://doi.org/10.5194/egusphere-2022-287",
+        "assignedTo": "Member 4",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Show model range and limits."
+      },
+      {
+        "section": "Climate",
+        "sourceOrganization": "NASA IPCC AR6 Sea Level Projection Tool",
+        "primaryUse": "Sea-level-rise range for 2100",
+        "url": "https://sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool",
+        "assignedTo": "Member 4",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Use a scenario range, not one exact value."
+      },
+      {
+        "section": "Climate",
+        "sourceOrganization": "Matano et al. (2021)",
+        "primaryUse": "Campania coastal inundation scenarios",
+        "url": "https://doi.org/10.1007/s12665-021-09884-0",
+        "assignedTo": "Member 4",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Regional coastal study."
+      },
+      {
+        "section": "Climate",
+        "sourceOrganization": "World Bank Climate Change Knowledge Portal — Italy",
+        "primaryUse": "Supporting climate projections",
+        "url": "https://climateknowledgeportal.worldbank.org/country/italy/climate-data-projections",
+        "assignedTo": "Member 4",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Supporting source, not the only regional source."
+      },
+      {
+        "section": "Climate / Flood",
+        "sourceOrganization": "PERI-CENE Naples flood-risk map",
+        "primaryUse": "Riverine flood risk and population density",
+        "url": "https://peri-cene.net/policy-lab/naples/",
+        "assignedTo": "Member 4",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Check map date and data sources."
+      },
+      {
+        "section": "Images",
+        "sourceOrganization": "European Space Agency — Vesuvius",
+        "primaryUse": "Vesuvius photograph",
+        "url": "https://www.esa.int/spaceinimages/Images/2017/05/Vesuvius",
+        "assignedTo": "Member 3",
+        "verificationStatus": "Not Started",
+        "progress": 0,
+        "notesImageCredit": "Include the ESA image credit."
+      }
+    ],
+    "verificationNote": "Do not mark a source Complete until the exact figure, statistic, date, and image credit used on the slide have been checked against the original source."
+  }
+}
