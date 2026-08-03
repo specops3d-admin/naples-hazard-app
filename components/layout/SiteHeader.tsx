@@ -3,22 +3,37 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
+import { SignOutButton } from "@/components/auth/SignOutButton";
 import { cn } from "@/lib/cn";
 
-const NAV = [
+const PUBLIC_NAV = [
   { href: "/", label: "Home" },
   { href: "/hazards", label: "Hazards" },
-  { href: "/workflow", label: "Workflow" },
   { href: "/timeline", label: "Timeline" },
-  { href: "/presentation", label: "Presentation" },
   { href: "/checklist", label: "Checklist" },
   { href: "/sources", label: "Sources" },
 ];
 
-export function SiteHeader() {
+const AUTH_NAV = [
+  { href: "/dashboard", label: "Dashboard" },
+  { href: "/workflow", label: "Workflow" },
+  { href: "/presentation", label: "Presentation" },
+];
+
+export function SiteHeader({ userEmail }: { userEmail: string | null }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const isSignedIn = Boolean(userEmail);
+
+  const navItems = isSignedIn
+    ? [
+        PUBLIC_NAV[0],
+        PUBLIC_NAV[1],
+        ...AUTH_NAV,
+        ...PUBLIC_NAV.slice(2),
+      ]
+    : [...PUBLIC_NAV, { href: "/login", label: "Login" }];
 
   useEffect(() => {
     if (!open) return;
@@ -28,6 +43,12 @@ export function SiteHeader() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
+
+  function isActive(href: string) {
+    return href === "/"
+      ? pathname === "/"
+      : pathname.startsWith(href);
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-[var(--brand-navy)] text-white shadow-sm">
@@ -57,28 +78,27 @@ export function SiteHeader() {
 
         <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-1">
-            {NAV.map((item) => {
-              const active =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href);
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      "rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300",
-                      active
-                        ? "bg-white/15 text-white"
-                        : "text-slate-200 hover:bg-white/10 hover:text-white",
-                    )}
-                    aria-current={active ? "page" : undefined}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300",
+                    isActive(item.href)
+                      ? "bg-white/15 text-white"
+                      : "text-slate-200 hover:bg-white/10 hover:text-white",
+                  )}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            {isSignedIn ? (
+              <li>
+                <SignOutButton />
+              </li>
+            ) : null}
           </ul>
         </nav>
       </div>
@@ -90,27 +110,26 @@ export function SiteHeader() {
       >
         <nav aria-label="Mobile primary" className="mx-auto max-w-6xl px-4 py-3">
           <ul className="flex flex-col gap-1">
-            {NAV.map((item) => {
-              const active =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href);
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className={cn(
-                      "block rounded-md px-3 py-2 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300",
-                      active ? "bg-white/15" : "hover:bg-white/10",
-                    )}
-                    aria-current={active ? "page" : undefined}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={cn(
+                    "block rounded-md px-3 py-2 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300",
+                    isActive(item.href) ? "bg-white/15" : "hover:bg-white/10",
+                  )}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            {isSignedIn ? (
+              <li className="px-1 pt-1">
+                <SignOutButton />
+              </li>
+            ) : null}
           </ul>
         </nav>
       </div>

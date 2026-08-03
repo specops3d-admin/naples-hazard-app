@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteHeaderWrapper } from "@/components/layout/SiteHeaderWrapper";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import "./globals.css";
 
@@ -42,7 +42,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <SiteHeader />
+        <SiteHeaderWrapper />
         <main id="main-content" className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
           {children}
         </main>

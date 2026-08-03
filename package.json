@@ -11,6 +11,8 @@
     "import:presentation": "node scripts/extract-presentation.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.4",
+    "@supabase/supabase-js": "^2.111.0",
     "csv-parse": "^7.0.1",
     "fast-xml-parser": "^5.10.1",
     "jszip": "^3.10.1",
