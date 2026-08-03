@@ -3,37 +3,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
-import { SignOutButton } from "@/components/auth/SignOutButton";
 import { cn } from "@/lib/cn";
 
-const PUBLIC_NAV = [
+const NAV_ITEMS = [
   { href: "/", label: "Home" },
   { href: "/hazards", label: "Hazards" },
+  { href: "/dashboard", label: "Dashboard" },
+  { href: "/workflow", label: "Workflow" },
+  { href: "/presentation", label: "Presentation" },
   { href: "/timeline", label: "Timeline" },
   { href: "/checklist", label: "Checklist" },
   { href: "/sources", label: "Sources" },
 ];
 
-const AUTH_NAV = [
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/workflow", label: "Workflow" },
-  { href: "/presentation", label: "Presentation" },
-];
-
-export function SiteHeader({ userEmail }: { userEmail: string | null }) {
+export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const panelId = useId();
-  const isSignedIn = Boolean(userEmail);
-
-  const navItems = isSignedIn
-    ? [
-        PUBLIC_NAV[0],
-        PUBLIC_NAV[1],
-        ...AUTH_NAV,
-        ...PUBLIC_NAV.slice(2),
-      ]
-    : [...PUBLIC_NAV, { href: "/login", label: "Login" }];
 
   useEffect(() => {
     if (!open) return;
@@ -78,7 +64,7 @@ export function SiteHeader({ userEmail }: { userEmail: string | null }) {
 
         <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-1">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -94,11 +80,6 @@ export function SiteHeader({ userEmail }: { userEmail: string | null }) {
                 </Link>
               </li>
             ))}
-            {isSignedIn ? (
-              <li>
-                <SignOutButton />
-              </li>
-            ) : null}
           </ul>
         </nav>
       </div>
@@ -110,7 +91,7 @@ export function SiteHeader({ userEmail }: { userEmail: string | null }) {
       >
         <nav aria-label="Mobile primary" className="mx-auto max-w-6xl px-4 py-3">
           <ul className="flex flex-col gap-1">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -125,11 +106,6 @@ export function SiteHeader({ userEmail }: { userEmail: string | null }) {
                 </Link>
               </li>
             ))}
-            {isSignedIn ? (
-              <li className="px-1 pt-1">
-                <SignOutButton />
-              </li>
-            ) : null}
           </ul>
         </nav>
       </div>

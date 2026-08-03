@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
+import { MemberAssignmentSelector } from "@/components/MemberAssignmentSelector";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { RealtimeWorkflowEditor } from "@/components/workflow/RealtimeWorkflowEditor";
-import { requireUser } from "@/lib/auth";
-import { fetchAssignments } from "@/lib/assignments-server";
 import { getWorkflow } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Workflow",
 };
 
-export const dynamic = "force-dynamic";
-
-export default async function WorkflowPage() {
-  const auth = await requireUser();
-  const { assignments, error } = await fetchAssignments();
+export default function WorkflowPage() {
   const workflow = getWorkflow();
 
   return (
@@ -21,16 +15,10 @@ export default async function WorkflowPage() {
       <PageHeader
         eyebrow="Team operations"
         title="Assignment workflow"
-        description="Update your assignment status and notes. Members may edit only rows matching their email; project leads may edit all assignments."
+        description="Live read-only view of team assignments from the shared Google Sheet. Select a member to focus the tracker or share a direct link."
       />
 
-      <RealtimeWorkflowEditor
-        initialAssignments={assignments}
-        userEmail={auth.email}
-        isProjectLead={auth.isProjectLead}
-        isKnownMember={auth.isKnownMember}
-        loadError={error}
-      />
+      <MemberAssignmentSelector />
 
       <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
         <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--brand-navy)]">
