@@ -13,9 +13,9 @@ export default function WorkflowPage() {
   return (
     <div className="space-y-8">
       <PageHeader
-        eyebrow="Team operations"
-        title="Assignment workflow"
-        description="Live read-only view of team assignments from the shared Google Sheet. Select a member to focus the tracker or share a direct link."
+        eyebrow="Assignment management"
+        title="Team assignment workflow"
+        description="Detailed, read-only assignment tracker from the shared Google Sheet. Select a member to focus the view or share a direct member link."
       />
 
       <MemberAssignmentSelector />

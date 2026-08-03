@@ -19,12 +19,6 @@ import type {
 const ALL_MEMBERS_VALUE = "all";
 const REFRESH_INTERVAL_MS = 60_000;
 
-function averageProgress(members: ProjectMember[]): number {
-  if (members.length === 0) return 0;
-  const total = members.reduce((sum, member) => sum + member.progress, 0);
-  return Math.round(total / members.length);
-}
-
 function formatTimestamp(date: Date): string {
   return date.toLocaleString(undefined, {
     dateStyle: "medium",
@@ -209,8 +203,6 @@ function MemberAssignmentSelectorInner() {
       ? members
       : members.filter((member) => member.member_id === activeMemberId);
 
-  const overallProgress = averageProgress(members);
-
   if (loading && members.length === 0) {
     return (
       <section
@@ -267,8 +259,8 @@ function MemberAssignmentSelectorInner() {
               Live team assignments
             </h2>
             <p className="mt-1 text-sm text-slate-600">
-              Data refreshes automatically from the shared Google Sheet every 60
-              seconds.
+              Detailed assignment management. Data refreshes automatically from
+              the shared Google Sheet every 60 seconds.
             </p>
           </div>
           <p className="text-sm text-slate-600" aria-live="polite">
@@ -286,28 +278,6 @@ function MemberAssignmentSelectorInner() {
             Live refresh issue: {error}. Showing the last successful update.
           </p>
         ) : null}
-
-        <div className="mt-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
-                Overall project progress
-              </h3>
-              <p className="mt-1 text-3xl font-semibold text-[var(--brand-navy)]">
-                {overallProgress}%
-              </p>
-              <p className="mt-1 text-xs text-slate-500">
-                Average of all member progress values
-              </p>
-            </div>
-            <div className="w-full max-w-md">
-              <ProgressBar
-                value={overallProgress}
-                label="Overall project progress"
-              />
-            </div>
-          </div>
-        </div>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-end">
           <label htmlFor={selectId} className="block min-w-0 flex-1 text-sm">
