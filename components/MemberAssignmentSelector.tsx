@@ -15,6 +15,11 @@ import type {
   ProjectDataResponse,
   ProjectMember,
 } from "@/types/project";
+import type {
+  TimelineDataErrorResponse,
+  TimelineDataResponse,
+  TimelineItem,
+} from "@/types/timeline";
 
 const ALL_MEMBERS_VALUE = "all";
 const REFRESH_INTERVAL_MS = 60_000;
@@ -26,7 +31,67 @@ function formatTimestamp(date: Date): string {
   });
 }
 
-function MemberCard({ member }: { member: ProjectMember }) {
+function normalizeMatchValue(value: string): string {
+  return value.trim().toLowerCase();
+}
+
+function getTimelineItemsForMember(
+  member: ProjectMember,
+  timeline: TimelineItem[],
+): TimelineItem[] {
+  const memberKey = normalizeMatchValue(member.member_name);
+  if (!memberKey) return [];
+
+  return timeline.filter(
+    (item) => normalizeMatchValue(item.owner) === memberKey,
+  );
+}
+
+async function fetchProjectMembers(): Promise<ProjectMember[]> {
+  const response = await fetch("/api/project-data", { cache: "no-store" });
+  const payload = (await response.json()) as
+    | ProjectDataResponse
+    | ProjectDataErrorResponse;
+
+  if (!response.ok) {
+    throw new Error(
+      "error" in payload ? payload.error : "Unable to load project data.",
+    );
+  }
+
+  if (!("members" in payload)) {
+    throw new Error("Unable to load project data.");
+  }
+
+  return payload.members;
+}
+
+async function fetchTimelineItems(): Promise<TimelineItem[]> {
+  const response = await fetch("/api/timeline-data", { cache: "no-store" });
+  const payload = (await response.json()) as
+    | TimelineDataResponse
+    | TimelineDataErrorResponse;
+
+  if (!response.ok) {
+    throw new Error(
+      "error" in payload ? payload.error : "Unable to load timeline data.",
+    );
+  }
+
+  if (!("timeline" in payload)) {
+    throw new Error("Unable to load timeline data.");
+  }
+
+  return payload.timeline;
+}
+
+function MemberCard({
+  member,
+  timelineItems,
+}: {
+  member: ProjectMember;
+  timelineItems: TimelineItem[];
+}) {
   return (
     <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
       <div className="flex items-start justify-between gap-3">
@@ -66,6 +131,60 @@ function MemberCard({ member }: { member: ProjectMember }) {
           label={`${member.member_name || "Member"} progress`}
         />
       </div>
+
+      <section className="mt-6 border-t border-slate-100 pt-5">
+        <h4 className="font-[family-name:var(--font-display)] text-base font-semibold text-[var(--brand-navy)]">
+          Timeline & Handoffs
+        </h4>
+        {timelineItems.length === 0 ? (
+          <p className="mt-3 text-sm text-slate-600">
+            No timeline or handoff items are currently assigned to this member.
+          </p>
+        ) : (
+          <ul className="mt-3 space-y-3">
+            {timelineItems.map((item, index) => (
+              <li
+                key={`${item.phase}-${item.target_day}-${index}`}
+                className="rounded-lg bg-slate-50 px-4 py-3"
+              >
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p className="font-medium text-[var(--brand-navy)]">
+                      {item.phase || "Untitled phase"}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500">
+                      {item.target_day || "Day not set"}
+                    </p>
+                  </div>
+                  <StatusBadge status={item.status} />
+                </div>
+                <dl className="mt-3 grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
+                  <div className="sm:col-span-2">
+                    <dt className="font-medium text-slate-500">Action</dt>
+                    <dd className="mt-0.5">{item.action || "—"}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-slate-500">
+                      Required output
+                    </dt>
+                    <dd className="mt-0.5">{item.required_output || "—"}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-slate-500">Depends on</dt>
+                    <dd className="mt-0.5">{item.depends_on || "—"}</dd>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <dt className="font-medium text-slate-500">
+                      Approval / handoff
+                    </dt>
+                    <dd className="mt-0.5">{item.approval_handoff || "—"}</dd>
+                  </div>
+                </dl>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </article>
   );
 }
@@ -84,6 +203,7 @@ function MemberAssignmentSelectorInner() {
       : ALL_MEMBERS_VALUE,
   );
   const [members, setMembers] = useState<ProjectMember[]>([]);
+  const [timeline, setTimeline] = useState<TimelineItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
@@ -102,49 +222,62 @@ function MemberAssignmentSelectorInner() {
   useEffect(() => {
     let cancelled = false;
 
-    async function loadProjectData() {
-      try {
-        const response = await fetch("/api/project-data", {
-          cache: "no-store",
-        });
-        const payload = (await response.json()) as
-          | ProjectDataResponse
-          | ProjectDataErrorResponse;
+    async function loadAssignmentData() {
+      const [projectResult, timelineResult] = await Promise.all([
+        fetchProjectMembers().then(
+          (value) => ({ ok: true as const, value }),
+          (reason: unknown) => ({
+            ok: false as const,
+            error:
+              reason instanceof Error
+                ? reason.message
+                : "Unable to load project data.",
+          }),
+        ),
+        fetchTimelineItems().then(
+          (value) => ({ ok: true as const, value }),
+          (reason: unknown) => ({
+            ok: false as const,
+            error:
+              reason instanceof Error
+                ? reason.message
+                : "Unable to load timeline data.",
+          }),
+        ),
+      ]);
 
-        if (!response.ok) {
-          const message =
-            "error" in payload
-              ? payload.error
-              : "Unable to load project data.";
-          throw new Error(message);
-        }
+      if (cancelled) return;
 
-        if (!("members" in payload)) {
-          throw new Error("Unable to load project data.");
-        }
+      const errors: string[] = [];
 
-        if (cancelled) return;
+      if (projectResult.ok) {
+        setMembers(projectResult.value);
+      } else {
+        errors.push(projectResult.error);
+      }
 
-        setMembers(payload.members);
+      if (timelineResult.ok) {
+        setTimeline(timelineResult.value);
+      } else {
+        errors.push(timelineResult.error);
+      }
+
+      if (errors.length === 0) {
         setError(null);
         setLastUpdated(new Date());
-      } catch (loadError) {
-        if (cancelled) return;
-        setError(
-          loadError instanceof Error
-            ? loadError.message
-            : "Unable to load project data.",
-        );
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-        }
+      } else if (projectResult.ok || timelineResult.ok) {
+        setError(errors.join(" "));
+        setLastUpdated(new Date());
+      } else {
+        setError(errors.join(" "));
       }
+
+      setLoading(false);
     }
 
-    void loadProjectData();
+    void loadAssignmentData();
     const intervalId = window.setInterval(() => {
-      void loadProjectData();
+      void loadAssignmentData();
     }, REFRESH_INTERVAL_MS);
 
     return () => {
@@ -340,7 +473,11 @@ function MemberAssignmentSelectorInner() {
         }
       >
         {visibleMembers.map((member) => (
-          <MemberCard key={member.member_id} member={member} />
+          <MemberCard
+            key={member.member_id}
+            member={member}
+            timelineItems={getTimelineItemsForMember(member, timeline)}
+          />
         ))}
       </div>
     </section>

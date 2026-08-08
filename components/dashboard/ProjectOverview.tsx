@@ -5,11 +5,20 @@ import Link from "next/link";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { summarizeProject } from "@/lib/project-summary";
+import {
+  averageProgressFromStatuses,
+  normalizeStatus,
+} from "@/lib/status";
 import type {
   ProjectDataErrorResponse,
   ProjectDataResponse,
   ProjectMember,
 } from "@/types/project";
+import type {
+  TimelineDataErrorResponse,
+  TimelineDataResponse,
+  TimelineItem,
+} from "@/types/timeline";
 
 const REFRESH_INTERVAL_MS = 60_000;
 
@@ -27,9 +36,56 @@ function formatTimestamp(date: Date): string {
   });
 }
 
+function isCompleteStatus(status: string): boolean {
+  return normalizeStatus(status) === "Complete";
+}
+
+function getIncompleteTimelineItems(timeline: TimelineItem[]): TimelineItem[] {
+  return timeline.filter((item) => !isCompleteStatus(item.status));
+}
+
+async function fetchProjectMembers(): Promise<ProjectMember[]> {
+  const response = await fetch("/api/project-data", { cache: "no-store" });
+  const payload = (await response.json()) as
+    | ProjectDataResponse
+    | ProjectDataErrorResponse;
+
+  if (!response.ok) {
+    throw new Error(
+      "error" in payload ? payload.error : "Unable to load project data.",
+    );
+  }
+
+  if (!("members" in payload)) {
+    throw new Error("Unable to load project data.");
+  }
+
+  return payload.members;
+}
+
+async function fetchTimelineItems(): Promise<TimelineItem[]> {
+  const response = await fetch("/api/timeline-data", { cache: "no-store" });
+  const payload = (await response.json()) as
+    | TimelineDataResponse
+    | TimelineDataErrorResponse;
+
+  if (!response.ok) {
+    throw new Error(
+      "error" in payload ? payload.error : "Unable to load timeline data.",
+    );
+  }
+
+  if (!("timeline" in payload)) {
+    throw new Error("Unable to load timeline data.");
+  }
+
+  return payload.timeline;
+}
+
 export function ProjectOverview() {
   const headingId = useId();
   const [members, setMembers] = useState<ProjectMember[]>([]);
+  const [timeline, setTimeline] = useState<TimelineItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
@@ -37,49 +93,62 @@ export function ProjectOverview() {
   useEffect(() => {
     let cancelled = false;
 
-    async function loadProjectData() {
-      try {
-        const response = await fetch("/api/project-data", {
-          cache: "no-store",
-        });
-        const payload = (await response.json()) as
-          | ProjectDataResponse
-          | ProjectDataErrorResponse;
+    async function loadDashboardData() {
+      const [projectResult, timelineResult] = await Promise.all([
+        fetchProjectMembers().then(
+          (value) => ({ ok: true as const, value }),
+          (reason: unknown) => ({
+            ok: false as const,
+            error:
+              reason instanceof Error
+                ? reason.message
+                : "Unable to load project data.",
+          }),
+        ),
+        fetchTimelineItems().then(
+          (value) => ({ ok: true as const, value }),
+          (reason: unknown) => ({
+            ok: false as const,
+            error:
+              reason instanceof Error
+                ? reason.message
+                : "Unable to load timeline data.",
+          }),
+        ),
+      ]);
 
-        if (!response.ok) {
-          const message =
-            "error" in payload
-              ? payload.error
-              : "Unable to load project data.";
-          throw new Error(message);
-        }
+      if (cancelled) return;
 
-        if (!("members" in payload)) {
-          throw new Error("Unable to load project data.");
-        }
+      const errors: string[] = [];
 
-        if (cancelled) return;
+      if (projectResult.ok) {
+        setMembers(projectResult.value);
+      } else {
+        errors.push(projectResult.error);
+      }
 
-        setMembers(payload.members);
+      if (timelineResult.ok) {
+        setTimeline(timelineResult.value);
+      } else {
+        errors.push(timelineResult.error);
+      }
+
+      if (errors.length === 0) {
         setError(null);
         setLastUpdated(new Date());
-      } catch (loadError) {
-        if (cancelled) return;
-        setError(
-          loadError instanceof Error
-            ? loadError.message
-            : "Unable to load project data.",
-        );
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-        }
+      } else if (projectResult.ok || timelineResult.ok) {
+        setError(errors.join(" "));
+        setLastUpdated(new Date());
+      } else {
+        setError(errors.join(" "));
       }
+
+      setLoading(false);
     }
 
-    void loadProjectData();
+    void loadDashboardData();
     const intervalId = window.setInterval(() => {
-      void loadProjectData();
+      void loadDashboardData();
     }, REFRESH_INTERVAL_MS);
 
     return () => {
@@ -133,6 +202,16 @@ export function ProjectOverview() {
   }
 
   const summary = summarizeProject(members);
+  const incompleteTimeline = getIncompleteTimelineItems(timeline);
+  const completeTimelineCount = timeline.length - incompleteTimeline.length;
+  const timelineCompletion = averageProgressFromStatuses(
+    timeline.map((item) => item.status),
+  );
+  const currentPhase = incompleteTimeline[0] ?? null;
+  const upcomingHandoffs = incompleteTimeline
+    .map((item) => item.approval_handoff.trim())
+    .filter(Boolean)
+    .slice(0, 4);
 
   return (
     <section className="space-y-6" aria-labelledby={headingId}>
@@ -332,6 +411,127 @@ export function ProjectOverview() {
           </ul>
         </section>
       ) : null}
+
+      <section aria-labelledby="timeline-summary-heading">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h3
+              id="timeline-summary-heading"
+              className="font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--brand-navy)]"
+            >
+              Timeline & handoffs
+            </h3>
+            <p className="mt-1 text-sm text-slate-600">
+              Compact summary from the Timeline & Handoffs sheet. Timeline
+              status is separate from App Data assignment status.
+            </p>
+          </div>
+          <Link
+            href="/timeline"
+            className="text-sm font-semibold text-[var(--brand-accent)] underline decoration-amber-300 underline-offset-2 hover:text-amber-950"
+          >
+            Open full timeline
+          </Link>
+        </div>
+
+        {timeline.length === 0 ? (
+          <div className="mt-4 rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-sm">
+            <p className="text-sm text-slate-600">
+              No timeline phases are available from the current sheet refresh.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="grid gap-3 sm:grid-cols-3">
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Timeline completion
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {timelineCompletion}%
+                </p>
+                <div className="mt-2">
+                  <ProgressBar
+                    value={timelineCompletion}
+                    label="Timeline completion"
+                  />
+                </div>
+              </article>
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Complete rows
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {completeTimelineCount}
+                </p>
+              </article>
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Incomplete rows
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {incompleteTimeline.length}
+                </p>
+              </article>
+            </div>
+
+            <dl className="mt-5 grid gap-3 text-sm sm:grid-cols-2">
+              <div>
+                <dt className="font-medium text-slate-500">Current phase</dt>
+                <dd className="mt-1 text-[var(--brand-navy)]">
+                  {currentPhase?.phase || "All phases complete"}
+                </dd>
+              </div>
+              <div>
+                <dt className="font-medium text-slate-500">
+                  Next incomplete action
+                </dt>
+                <dd className="mt-1 text-[var(--brand-navy)]">
+                  {currentPhase?.action || "No incomplete actions"}
+                </dd>
+              </div>
+              <div>
+                <dt className="font-medium text-slate-500">Owner</dt>
+                <dd className="mt-1 text-[var(--brand-navy)]">
+                  {currentPhase?.owner || "—"}
+                </dd>
+              </div>
+              <div>
+                <dt className="font-medium text-slate-500">Target day</dt>
+                <dd className="mt-1 text-[var(--brand-navy)]">
+                  {currentPhase?.target_day || "—"}
+                </dd>
+              </div>
+              <div>
+                <dt className="font-medium text-slate-500">Timeline status</dt>
+                <dd className="mt-1">
+                  {currentPhase ? (
+                    <StatusBadge status={currentPhase.status} />
+                  ) : (
+                    <StatusBadge status="Complete" />
+                  )}
+                </dd>
+              </div>
+              <div>
+                <dt className="font-medium text-slate-500">
+                  Upcoming incomplete handoffs
+                </dt>
+                <dd className="mt-1 text-[var(--brand-navy)]">
+                  {upcomingHandoffs.length > 0 ? (
+                    <ul className="list-disc space-y-1 pl-5">
+                      {upcomingHandoffs.map((handoff, index) => (
+                        <li key={`${handoff}-${index}`}>{handoff}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    "No pending handoffs"
+                  )}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        )}
+      </section>
 
       <nav aria-label="Quick links">
         <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--brand-navy)]">

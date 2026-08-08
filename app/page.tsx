@@ -1,18 +1,11 @@
 import Link from "next/link";
-import {
-  getOverallCompletion,
-  getPriorityHazards,
-  getWorkflow,
-} from "@/lib/data";
-import { progressFromStatus } from "@/lib/status";
-import { StatusBadge } from "@/components/ui/StatusBadge";
-import { ProgressBar } from "@/components/ui/ProgressBar";
+import { LiveProjectStatus } from "@/components/home/LiveProjectStatus";
 import { EstimateNotice } from "@/components/ui/EstimateNotice";
+import { getPriorityHazards, getWorkflow } from "@/lib/data";
 
 export default function HomePage() {
   const workflow = getWorkflow();
   const summary = workflow.teamDashboard.projectSummary;
-  const completion = getOverallCompletion(workflow);
   const priorities = getPriorityHazards();
 
   return (
@@ -66,89 +59,7 @@ export default function HomePage() {
         </article>
       </section>
 
-      <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--brand-navy)]">
-              Overall completion
-            </h2>
-            <p className="mt-1 text-sm text-slate-600">
-              Overall completion is the average of the five team-member progress
-              values, each derived from Status.
-            </p>
-          </div>
-          <p className="text-4xl font-semibold text-[var(--brand-navy)]">
-            {completion.overall}%
-          </p>
-        </div>
-        <div className="mt-5">
-          <ProgressBar value={completion.overall} label="Overall completion" />
-        </div>
-        <dl className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            ["Team members", completion.members],
-            ["Assignments", completion.assignments],
-            ["Final slides", completion.slides],
-            ["Timeline", completion.timeline],
-            ["Checklist", completion.checklist],
-            ["Sources", completion.sources],
-          ].map(([label, value]) => (
-            <div
-              key={label}
-              className="rounded-lg bg-slate-50 px-4 py-3 text-sm"
-            >
-              <dt className="text-slate-500">{label}</dt>
-              <dd className="mt-1 text-lg font-semibold text-[var(--brand-navy)]">
-                {value}%
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </section>
-
-      <section>
-        <div className="mb-4 flex items-end justify-between gap-3">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--brand-navy)]">
-            Team member status
-          </h2>
-          <Link
-            href="/workflow"
-            className="text-sm font-semibold text-[var(--brand-accent)] underline decoration-amber-300 underline-offset-2 hover:text-amber-950"
-          >
-            View workflow
-          </Link>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {workflow.teamDashboard.members.map((member) => {
-            const progress = progressFromStatus(member.status);
-            return (
-              <article
-                key={member.member}
-                className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-semibold text-[var(--brand-navy)]">
-                    {member.member}
-                  </h3>
-                  <StatusBadge status={member.status} />
-                </div>
-                <p className="mt-2 text-sm text-slate-700">
-                  {member.naplesSection}
-                </p>
-                <p className="mt-1 text-xs text-slate-500">
-                  Final slides {member.finalSlides}
-                </p>
-                <div className="mt-4">
-                  <ProgressBar value={progress} label={`${member.member} progress`} />
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-slate-600">
-                  Handoff: {member.primaryHandoff}
-                </p>
-              </article>
-            );
-          })}
-        </div>
-      </section>
+      <LiveProjectStatus />
 
       <section>
         <div className="mb-4 flex items-end justify-between gap-3">
