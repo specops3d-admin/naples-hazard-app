@@ -1,8 +1,8 @@
 {
   "meta": {
-    "extractedAt": "2026-08-01T21:37:52.554Z",
-    "sourceFile": "source-files/Naples_Hazards_Assessment_Final_PartsIII_IV.pptx",
-    "slideCount": 30,
+    "extractedAt": "2026-08-08T00:44:22.264Z",
+    "sourceFile": "source-files/Naples_Hazards_Assessment_Final_PartsIII_IV(3).pptx",
+    "slideCount": 31,
     "note": "Text extracted verbatim from PowerPoint slide XML. Scientific content was not summarized or rewritten."
   },
   "slides": [
@@ -11,10 +11,10 @@
       "title": "Hazards Assessment Report",
       "subtitle": "Naples, Italy",
       "textBlocks": [
-        "Part 1: Plate Tectonics",
-        "How do Earth systems influence the hazards present to people living in different locations?",
-        "Working deck — editable text and sources included",
-        "Mount Vesuvius and Naples waterfront"
+        "Group Presentation | Hazards, Risk & Mitigation",
+        "Big Question\nHow do Earth systems influence the hazards present to people living in different locations?",
+        "Mount Vesuvius and Naples waterfront",
+        "Team members and focus areas\nMariet Young - Priorities, mitigation & integration\nSaniah Mcwilliams - Tectonics & geography\nStephanie Xiong-Cha - Earthquakes & ground response\nStacey Konde - Climate change\nAima Adnan - Volcanoes"
       ],
       "imagePath": "/slides/Slide1.PNG",
       "section": "Part I — Plate Tectonics",
@@ -22,13 +22,13 @@
     },
     {
       "slideNumber": 2,
-      "title": "Tectonic plates shaping Naples",
-      "subtitle": "Which plates, direction of motion, and boundary type influence the region?",
+      "title": "Which plates, direction of motion, and boundary type influence the region?",
+      "subtitle": "Central Mediterranean plate setting",
       "textBlocks": [
-        "Central Mediterranean plate setting",
         "Key interpretation",
         "Naples sits in a complex plate-boundary zone, not on a simple single boundary line.",
         "Main driver: Africa/Nubia converges toward Eurasia across the Mediterranean.\nLocal complication: the Adriatic/Apulian microplate and the Apennine belt focus deformation near southern Italy.\nBoundary style: mostly convergent, but with subduction, collision, extension, and strike-slip motion mixed together.\nEarth-system result: mountain building, crustal faulting, and magma generation beneath the Campanian volcanic area.",
+        "Part 1: Tectonics & geography",
         "4–10",
         "mm/yr Africa–Eurasia relative motion across the Mediterranean"
       ],
@@ -87,14 +87,12 @@
       "subtitle": "Connection to the assignment Big Question",
       "textBlocks": [
         "Big Question",
-        "“How do Earth systems influence the hazards present to people living in different locations?”",
+        "How do Earth systems influence the hazards present to people living in different locations?",
         "For Naples, the answer begins with plate tectonics.",
         "Africa–Eurasia convergence creates a broad, complex plate boundary.",
         "Subduction and back-arc extension help generate magma and heat.",
         "Volcanism builds calderas, cones, geothermal areas, and fertile lowlands.",
-        "People live on a coast between active volcanoes and earthquake sources.",
-        "Starting hazard priorities for later slides",
-        "1) Volcanic eruption / ash / pyroclastic-flow risk\n2) Campi Flegrei bradyseism and shallow earthquake swarms\n3) Regional tectonic earthquakes\n4) Coastal flooding, landslides, and climate-linked hazards to add in later parts"
+        "People live on a coast between active volcanoes and earthquake sources."
       ],
       "imagePath": "/slides/Slide6.PNG",
       "section": "Part I — Plate Tectonics",
@@ -102,27 +100,19 @@
     },
     {
       "slideNumber": 7,
-      "title": "Source tracker for Part 1",
-      "subtitle": "Keep this slide for later citations and image credits.",
-      "textBlocks": [],
-      "imagePath": "/slides/Slide7.PNG",
-      "section": "Part I — Plate Tectonics",
-      "sourceOrCitationText": "1. Carlino, S. (2021). Review article: Brief history of volcanic risk in the Neapolitan area (Campania, southern Italy): A critical review. Natural Hazards and Earth System Sciences, 21, 3097–3112. https://doi.org/10.5194/nhess-21-3097-2021\n2. De Natale, G., Troise, C., & Somma, R. (2020). Invited perspectives: The volcanoes of Naples: How can the highest volcanic risk in the world be effectively mitigated? Natural Hazards and Earth System Sciences, 20, 2037–2053. https://doi.org/10.5194/nhess-20-2037-2020\n3. Herman, M. W., Hayes, G. P., Smoczyk, G. M., Turner, R., Turner, B., Jenkins, J., Davies, S., Parker, A., Sinclair, A., Benz, H. M., Furlong, K. P., & Villaseñor, A. (2015). Seismicity of the Earth 1900–2013: Mediterranean Sea and vicinity (USGS Open-File Report 2010–1083-Q). U.S. Geological Survey. https://pubs.usgs.gov/publication/ofr20101083Q\n4. IRIS. (n.d.). Interactive Earthquake Browser: Naples, Italy earthquake map. https://ds.iris.edu/ieb/index.html?format=text&nodata=404&starttime=1970-01-01&endtime=2055-01-01&mindepth=100&maxdepth=900&orderby=mag-desc&src=usgs&limit=3000&maxlat=41.03779728&minlat=40.51992874&maxlon=14.79239000&minlon=13.83108629&sbl=1&pbl=1&caller=self&name=Naples%2C%20Italy&zm=10&mt=ter\n5. NASA Earth Observatory. (2013, January 9). Campi Flegrei, Italy. https://science.nasa.gov/earth/earth-observatory/campi-flegrei-italy-80108/\n6. NASA Earth Observatory. (2022). A view of Vesuvius. https://science.nasa.gov/earth/earth-observatory/a-view-of-vesuvius-149298/\n7. Yellowstone Volcano Observatory. (2023, November 6). Living with active volcanoes in the back yard of the Naples metropolitan area in Italy. U.S. Geological Survey. https://www.usgs.gov/observatories/yvo/news/living-active-volcanoes-back-yard-naples-metropolitan-area-italy\n8. Italian Civil Protection Department. (2026). Bradyseism in the Phlegraean Fields. https://rischi.protezionecivile.gov.it/en/volcanic/volcanoes-italy/phlegraen-fields/bradyseism-phlegraean-fields/\n9. Smithsonian Institution, Global Volcanism Program. (n.d.). Vesuvius photo GVP-01531; photo by Dan Dzurisin, U.S. Geological Survey, public domain. https://volcano.si.edu/gallery/ShowImage.cfm?photo=GVP-01531"
-    },
-    {
-      "slideNumber": 8,
-      "title": "Part II: Earthquakes",
+      "title": "Part II: Earthquakes and Ground Response",
       "subtitle": "Earthquake history, faults, ground conditions, secondary hazards, and exposure",
       "textBlocks": [
         "Focus questions\nWhat earthquake sources are most likely to affect Naples?\nWhich ground conditions can make shaking worse?\nWhere are people, buildings, and infrastructure most exposed?",
-        "Part II approach\nUse IRIS / EarthScope earthquake mapping for seismicity.\nUse INGV/DISS and USGS reports for fault and tectonic context.\nUse ISPRA geology and Civil Protection data for ground response and exposure."
+        "Part II approach\nUse IRIS / EarthScope earthquake mapping for seismicity.\nUse INGV/DISS and USGS reports for fault and tectonic context.\nUse ISPRA geology and Civil Protection data for ground response and exposure.",
+        "Stephanie Xiong-Cha"
       ],
-      "imagePath": "/slides/Slide8.PNG",
-      "section": "Part II — Earthquakes",
+      "imagePath": "/slides/Slide7.PNG",
+      "section": "Part I — Plate Tectonics",
       "sourceOrCitationText": "Sources for this section: Herman et al. (2015); IRIS/EarthScope; INGV/Osservatorio Vesuviano; Dipartimento della Protezione Civile; ISPRA geological mapping."
     },
     {
-      "slideNumber": 9,
+      "slideNumber": 8,
       "title": "Earthquake history and expected earthquake sources",
       "subtitle": "Type, location, magnitude, and frequency of earthquakes that can affect Naples",
       "textBlocks": [
@@ -132,12 +122,12 @@
         "Campi Flegrei\nlocal seismicity",
         "Key points\nNaples is affected by two earthquake types: regional tectonic earthquakes and shallow volcano-tectonic earthquakes.\nThe largest regional source is the Southern Apennine fault belt east / northeast of Naples; a key example is the 1980 Irpinia earthquake, about M 6.9.\nLocal Campi Flegrei, Ischia, and Vesuvius earthquakes are usually smaller, but they are shallow and close to dense neighborhoods.\nM2–4 events are relatively common during unrest; M4–5 events occur occasionally; damaging M6–7 regional earthquakes are much rarer but higher consequence."
       ],
-      "imagePath": "/slides/Slide9.PNG",
+      "imagePath": "/slides/Slide8.PNG",
       "section": "Part II — Earthquakes",
       "sourceOrCitationText": "Sources: Herman et al. (2015), USGS Open-File Report 2010-1083-Q; IRIS/EarthScope Interactive Earthquake Browser; INGV CPTI15–DBMI15 catalogue."
     },
     {
-      "slideNumber": 10,
+      "slideNumber": 9,
       "title": "Major and local faults affecting Naples",
       "subtitle": "Fault locations are shown as generalized, editable working labels for the slide deck",
       "textBlocks": [
@@ -151,12 +141,12 @@
         "Local volcanic structures",
         "Interpretation\nMajor regional faults in the Southern Apennines can generate the larger earthquakes that shake Campania from outside Naples.\nLocal structures around Campi Flegrei, Ischia, and Vesuvius are important because they are near people and infrastructure.\nRegional faults are higher-magnitude sources; local volcanic faults are lower-magnitude but shallow and close to the city.\nThis is a generalized teaching map. Exact fault traces should be checked against DISS/INGV before final submission."
       ],
-      "imagePath": "/slides/Slide10.PNG",
+      "imagePath": "/slides/Slide9.PNG",
       "section": "Part II — Earthquakes",
       "sourceOrCitationText": "Sources: Herman et al. (2015); DISS Working Group / INGV Database of Individual Seismogenic Sources. Map redrawn as an editable classroom synthesis."
     },
     {
-      "slideNumber": 11,
+      "slideNumber": 10,
       "title": "Surface rock types and expected response to shaking",
       "subtitle": "Local geology helps explain why shaking damage can vary from one neighborhood to another",
       "textBlocks": [
@@ -171,12 +161,12 @@
         "Carbonate bedrock",
         "Expected shaking response\nVolcanic tuff, ash, pumice, and pyroclastic deposits are common around Naples, Campi Flegrei, and Vesuvius.\nCoastal lowlands, harbor areas, and reclaimed ground may include softer sediment and artificial fill that can amplify shaking.\nSteep slopes with loose volcanic material can be more susceptible to earthquake-triggered landslides or rockfall.\nMore competent carbonate bedrock generally amplifies less, but steep bedrock slopes can still produce rockfall."
       ],
-      "imagePath": "/slides/Slide11.PNG",
+      "imagePath": "/slides/Slide10.PNG",
       "section": "Part II — Earthquakes",
       "sourceOrCitationText": "Sources: ISPRA / Servizio Geologico d’Italia geological mapping for Napoli and Campania; Herman et al. (2015). Map is a generalized instructional synthesis."
     },
     {
-      "slideNumber": 12,
+      "slideNumber": 11,
       "title": "Earthquake-related hazards beyond shaking",
       "subtitle": "Ground shaking, liquefaction, landslides / rockfall, seiches, and tsunamis",
       "textBlocks": [
@@ -192,12 +182,12 @@
         "Coastal water hazard",
         "Hazard summary\nStrong shaking is a metro-wide concern, especially where soft sediments or thick volcanic deposits amplify ground motion.\nLiquefaction is most likely in low-lying coastal, alluvial, and reclaimed areas around the harbor and waterfront.\nLandslides and rockfall are concerns on steep slopes near crater margins, Vesuvius, Posillipo/Camaldoli, and the Sorrento Peninsula.\nTsunami or harbor seiche hazards are lower-probability but possible from offshore earthquakes, submarine landslides, or volcanic flank failure."
       ],
-      "imagePath": "/slides/Slide12.PNG",
+      "imagePath": "/slides/Slide11.PNG",
       "section": "Part II — Earthquakes",
       "sourceOrCitationText": "Sources: INGV Osservatorio Vesuviano (2025) Urban ShakeMap; Dipartimento della Protezione Civile vulnerability and microzonation plan; INGV hazard context."
     },
     {
-      "slideNumber": 13,
+      "slideNumber": 12,
       "title": "Population exposure and likely loss concentration",
       "subtitle": "Where earthquake hazards overlap with people, buildings, and critical infrastructure",
       "textBlocks": [
@@ -215,47 +205,25 @@
         "Critical infrastructure",
         "Exposure takeaways\nHighest exposure occurs where dense population, older buildings, soft ground, and critical infrastructure overlap.\nNaples, Pozzuoli, Bacoli, Portici, Ercolano, Torre del Greco, and Torre Annunziata are key communities for earthquake planning.\nUSGS notes that more than 3.5 million people live within about 30 km of the Naples volcanic-seismic system.\nA severe regional earthquake affecting the metro area could plausibly produce multi-billion-euro losses and long disruption to housing, utilities, roads, and emergency access."
       ],
-      "imagePath": "/slides/Slide13.PNG",
+      "imagePath": "/slides/Slide12.PNG",
       "section": "Part II — Earthquakes",
       "sourceOrCitationText": "Sources: USGS / Yellowstone Volcano Observatory (2023) population context; Dipartimento della Protezione Civile vulnerability plan. Cost is a first-pass classroom planning estimate, not an official loss model."
     },
     {
+      "slideNumber": 13,
+      "title": "Part III-A: Volcanoes",
+      "subtitle": "Tentative: Aima Adnan",
+      "textBlocks": [
+        "Volcanoes: eruption history, exposure, and risk",
+        "Volcanoes section",
+        "Location and type of volcanic features around Naples.\nPictures of Vesuvius and Campi Flegrei.\nEruption history and 100-year planning outlook.\nVulnerable locations, likely hazards, population exposure, and cost.",
+        "Section organization follows the group role list on slide 1 and the assignment requirement to cover both volcanoes and climate change separately."
+      ],
+      "imagePath": "/slides/Slide13.PNG",
+      "section": "Part II — Earthquakes"
+    },
+    {
       "slideNumber": 14,
-      "title": "Part II source tracker",
-      "subtitle": "Reliable sources used for earthquakes and earthquake-related hazards",
-      "textBlocks": [
-        "Note: Some maps are generalized classroom synthesis figures. They are labeled as generalized and should be refined with official map exports if the final assignment requires exact boundaries."
-      ],
-      "imagePath": "/slides/Slide14.PNG",
-      "section": "Part II — Earthquakes",
-      "sourceOrCitationText": "1. Herman, M. W., Hayes, G. P., Smoczyk, G. M., Turner, R., Turner, B., Jenkins, J., Davies, S., Parker, A., Sinclair, A., Benz, H. M., Furlong, K. P., & Villaseñor, A. (2015). Seismicity of the Earth 1900–2013: Mediterranean Sea and Vicinity, USGS Open-File Report 2010-1083-Q. https://pubs.usgs.gov/publication/ofr20101083Q\n2. Istituto Nazionale di Geofisica e Vulcanologia, Osservatorio Vesuviano. (2025, March 13). Campi Flegrei—Mappa di scuotimento per l’evento Md 4.6 del 13.03.2025 ore 01:25:02 [Urban ShakeMap].\n3. Dipartimento della Protezione Civile. (n.d.). The plan for vulnerability assessment of built-up areas affected by bradyseism in the Phlegraean Fields.\n4. Istituto Nazionale di Geofisica e Vulcanologia. (n.d.). CPTI15–DBMI15 v4.0: Parametric catalogue of Italian earthquakes and Italian macroseismic database.\n5. DISS Working Group / INGV. Database of Individual Seismogenic Sources. Used for regional and local active-fault context.\n6. ISPRA / Servizio Geologico d’Italia. Geological maps and explanatory notes for Napoli/Campania. Used for generalized surface rock-type interpretation."
-    },
-    {
-      "slideNumber": 15,
-      "title": "Part II discussion resources",
-      "subtitle": "Unique and reliable sources to share with the group",
-      "textBlocks": [
-        "Recommended discussion-post source\nUnique resource: INGV Urban ShakeMap for the March 13, 2025 Campi Flegrei Md 4.6 earthquake.\nWhy useful: it shows actual shaking patterns near Naples, not just a general Italy earthquake map.\nIt supports the ground-shaking, exposure, and “local earthquakes can still matter” arguments in Part II.\nIt connects directly to the Big Question because it shows how local Earth systems create place-specific risk.",
-        "Additional support sources\nCivil Protection vulnerability plan: useful for microzonation, building vulnerability, and mitigation priorities.\nCPTI15–DBMI15 catalogue: useful for historical earthquake magnitude, intensity, and recurrence context.\nUSGS Mediterranean seismicity report: useful for explaining the broader tectonic setting and earthquake sources."
-      ],
-      "imagePath": "/slides/Slide15.PNG",
-      "section": "Part II — Earthquakes",
-      "sourceOrCitationText": "Suggested APA references are listed on the preceding source tracker slide. Keep source URLs with image credits when finalizing the deck."
-    },
-    {
-      "slideNumber": 16,
-      "title": "Part III: Volcanoes & Climate Change",
-      "subtitle": "Volcanic history, eruption risk, vulnerable locations, climate projections, and coastal/flood hazards.",
-      "textBlocks": [
-        "What this section answers\nWhich volcanoes and climate hazards matter most?\nWhere are the highest-exposure neighborhoods?\nWhat actions should the city prioritize first?",
-        "Naples is a multi-hazard city: tectonics, volcanoes, dense urban development, the Bay of Naples, and warming climate all overlap in one metropolitan corridor."
-      ],
-      "imagePath": "/slides/Slide16.PNG",
-      "section": "Part III — Volcanoes and Climate Change",
-      "sourceOrCitationText": "Section framing based on De Natale et al. (2020), Civil Protection planning resources, and Campania climate projections."
-    },
-    {
-      "slideNumber": 17,
       "title": "Volcanoes around Naples: location and volcanic features",
       "subtitle": "Naples sits between three active volcanic systems: Campi Flegrei, Vesuvius, and Ischia.",
       "textBlocks": [
@@ -264,12 +232,12 @@
         "Ischia: volcanic island",
         "Why this matters\nCampi Flegrei is a broad caldera partly under western Naples and Pozzuoli Bay.\nVesuvius is a steep central volcano southeast of Naples.\nIschia is an offshore volcanic island with eruption and earthquake history.\nDifferent volcanic forms create different hazards: pyroclastic flows, ash fall, lava, gas, hydrothermal activity, and volcano-tectonic earthquakes."
       ],
-      "imagePath": "/slides/Slide17.PNG",
-      "section": "Part III — Volcanoes and Climate Change",
+      "imagePath": "/slides/Slide14.PNG",
+      "section": "Part II — Earthquakes",
       "sourceOrCitationText": "Map/source: De Natale et al. (2020); INGV (Campi Flegrei; Ischia); Smithsonian GVP (Campi Flegrei, Vesuvius, Ischia)."
     },
     {
-      "slideNumber": 18,
+      "slideNumber": 15,
       "title": "Pictures of volcanic features in the region",
       "subtitle": "The most visible volcanic hazard is Vesuvius, but Campi Flegrei affects the western urban area more directly.",
       "textBlocks": [
@@ -279,12 +247,12 @@
         "Campi Flegrei is not a single cone; it is a caldera with vents, craters, and hydrothermal areas embedded in the city.",
         "Presentation point: city officials should not think only about Vesuvius. Naples’ highest volcanic-risk problem comes from overlapping volcanic systems and dense urban exposure."
       ],
-      "imagePath": "/slides/Slide18.PNG",
-      "section": "Part III — Volcanoes and Climate Change",
+      "imagePath": "/slides/Slide15.PNG",
+      "section": "Part II — Earthquakes",
       "sourceOrCitationText": "Images/sources: ESA (2017) Vesuvius photograph; De Natale et al. (2020) Naples volcanic systems map; USGS/YVO (2023)."
     },
     {
-      "slideNumber": 19,
+      "slideNumber": 16,
       "title": "Volcanic eruption history and probability outlook",
       "subtitle": "The next 100 years cannot be predicted like a schedule, so emergency planning uses hazard zones, monitoring, and probability-based scenarios.",
       "textBlocks": [
@@ -298,12 +266,12 @@
         "100-year eruption outlook\nCampi Flegrei: non-zero probability; ongoing unrest means close monitoring and evacuation planning are essential.\nVesuvius: currently quiet but active; future eruption is expected eventually, timing uncertain.\nIschia: lower eruption probability than the two main systems, but volcanic earthquakes remain important.",
         "Planning interpretation\nDo not rank only by probability; rank by consequence × exposure × warning time.\nEven a moderate explosive eruption could force mass evacuation and regional disruption.\nUse monitored alert levels and pre-planned evacuation routes as the practical decision tool."
       ],
-      "imagePath": "/slides/Slide19.PNG",
+      "imagePath": "/slides/Slide16.PNG",
       "section": "Part III — Volcanoes and Climate Change",
       "sourceOrCitationText": "Sources: INGV (Campi Flegrei; Ischia); Smithsonian GVP (Campi Flegrei, Vesuvius, Ischia); NASA Earth Observatory (2022); Bevilacqua et al. (2017); Civil Protection planning resources."
     },
     {
-      "slideNumber": 20,
+      "slideNumber": 17,
       "title": "Most vulnerable volcanic locations and likely hazards",
       "subtitle": "Greatest volcanic risk follows the red/yellow emergency zones and the dense coastal corridor around Naples.",
       "textBlocks": [
@@ -311,12 +279,12 @@
         "Vesuvius zone",
         "Most likely volcanic hazards\nPyroclastic density currents: fastest and deadliest eruption hazard; evacuation is the main life-safety measure.\nAsh / lapilli fall: roof collapse, poor air quality, transport shutdowns, water contamination, power disruption.\nVolcano-tectonic earthquakes and bradyseism: cracking, structural damage, panic, and repeated disruption.\nHydrothermal explosions and gas: localized but dangerous near Solfatara/Pisciarelli and other vent areas.\nLahars/debris flows: most concerning around Vesuvius slopes and drainage channels after heavy rainfall."
       ],
-      "imagePath": "/slides/Slide20.PNG",
+      "imagePath": "/slides/Slide17.PNG",
       "section": "Part III — Volcanoes and Climate Change",
       "sourceOrCitationText": "Sources: Civil Protection Phlegraean Fields and Vesuvius planning maps; De Natale et al. (2020); INGV Campi Flegrei; Smithsonian GVP profiles."
     },
     {
-      "slideNumber": 21,
+      "slideNumber": 18,
       "title": "Volcanic disaster exposure: population affected and cost",
       "subtitle": "The population at risk is unusually high because volcanic zones overlap with the Naples metropolitan area.",
       "textBlocks": [
@@ -329,155 +297,282 @@
         "Likely disaster costs\nDirect costs: evacuation logistics, shelters, debris/ash cleanup, building damage, utility repairs, road and rail closure.\nIndirect costs: lost tourism, port disruption, business interruption, school/hospital displacement, long-term relocation.\nPlanning estimate: a major volcanic crisis could plausibly create multi-billion-euro losses even if evacuation prevents mass fatalities.",
         "Most affected places\nCampi Flegrei: Pozzuoli, Bacoli, Quarto, Monte di Procida, western Naples neighborhoods.\nVesuvius: towns on the volcano flanks and ash-fall communities downwind.\nCritical systems: port, rail/road corridors, hospitals, schools, water/power systems, tourism routes."
       ],
-      "imagePath": "/slides/Slide21.PNG",
+      "imagePath": "/slides/Slide18.PNG",
       "section": "Part III — Volcanoes and Climate Change",
       "sourceOrCitationText": "Sources: Civil Protection (2019, 2024) red-zone planning; De Natale et al. (2020) >3 million within 20 km; USGS/YVO (2023). Cost values are planning estimates for classroom mitigation prioritization."
     },
     {
-      "slideNumber": 22,
-      "title": "Climate change projections: temperature and precipitation",
-      "subtitle": "By 2050 and 2100, Campania is projected to get warmer, drier overall, and more prone to intense rainfall events.",
+      "slideNumber": 19,
+      "title": "Part III-B: Climate Change",
+      "subtitle": "Stacey Konde",
       "textBlocks": [
-        "Interpretation for Naples: heat stress, electricity demand, drought stress, wildfire risk, and heavy-rain drainage problems all increase. The precipitation problem is not only “less rain”—it is longer dry spells plus more intense short-duration rain."
+        "Climate change: heat, flooding, drought, and sea-level exposure",
+        "What Stacey’s slides add",
+        "Climate risk is already visible through dangerous heat events in Italy.\nBy 2100, port and waterfront flooding become a larger planning concern.\nThese climate hazards affect public health, tourism, transportation, utilities, and emergency response."
+      ],
+      "imagePath": "/slides/Slide19.PNG",
+      "section": "Part III — Volcanoes and Climate Change",
+      "sourceOrCitationText": "Source base: https://www.noaa.gov/education/resource-collections/climate/climate-change-impacts"
+    },
+    {
+      "slideNumber": 20,
+      "title": "Climate Change: heat risk in Naples",
+      "subtitle": "Stacey Konde",
+      "textBlocks": [
+        "Naples can get hot — heat risk is a public-health hazard",
+        "Stacey’s temperature slide is reframed for a city-council audience.",
+        "Stacey slide visual: high surface temperatures across Italy during hot conditions.",
+        "Key message",
+        "Hotter summers increase heat illness, cooling demand, power stress, and risk to elderly and low-income residents.\nUrban areas like Naples can experience stronger heat stress because pavement and dense buildings store heat.\nMitigation connection: heat warnings, cooling centers, shade, trees, water access, and checks on vulnerable residents.",
+        "Stacey Presentation.pdf, slide “Naple Italy Can get hot”; heat-risk interpretation for Naples added for presentation clarity."
+      ],
+      "imagePath": "/slides/Slide20.PNG",
+      "section": "Part III — Volcanoes and Climate Change"
+    },
+    {
+      "slideNumber": 21,
+      "title": "Climate Change: heat is already happening",
+      "subtitle": "Stacey Konde",
+      "textBlocks": [
+        "Summer 2022 showed why heat planning matters",
+        "Summer 2022 a record-Breaking Heat Across Italy happened:",
+        "Causing Approximately 18,010 heat-related deaths during the summer of 2022.\nItaly recorded one of the highest heat-related mortality rates in Europe (about 295 deaths per million people).\nThese findings highlight the need for heat action plans, cooling centers, and improved emergency preparedness in cities like Naples.",
+        "Planning implication for Naples",
+        "Heat action plans, cooling centers, and public alerts should be treated as hazard mitigation, not just weather advice.\nHeat preparedness supports the final mitigation plan because it saves lives during events that are becoming more frequent."
+      ],
+      "imagePath": "/slides/Slide21.PNG",
+      "section": "Part III — Volcanoes and Climate Change",
+      "sourceOrCitationText": "Stacey Presentation.pdf heat mortality slide; Ballester et al. (2023), Nature Medicine, heat-related mortality in Europe during summer 2022."
+    },
+    {
+      "slideNumber": 22,
+      "title": "Climate Change: sea-level rise and flooding",
+      "subtitle": "Stacey Konde",
+      "textBlocks": [
+        "Port and waterfront flooding are key climate-change exposure points",
+        "Stacey planning value",
+        "1–3.6 ft by 2100",
+        "Most exposed",
+        "Port / waterfront",
+        "Why it matters",
+        "Higher sea level can make storm surge, coastal flooding, and drainage backups more damaging.\nThe port, waterfront roads, tourism areas, utilities, and emergency routes are vulnerable because they sit near the Bay of Naples.\nThis connects climate change to economic disruption, not only environmental change.",
+        "Stacey Presentation.pdf flooding slide; NASA/IPCC sea-level projection resources and Climate Central listed in Stacey references."
       ],
       "imagePath": "/slides/Slide22.PNG",
-      "section": "Part III — Volcanoes and Climate Change",
-      "sourceOrCitationText": "Sources: Giugliano et al. (2022) Campania high-resolution climate projections using COSMO-CLM and EURO-CORDEX; IPCC AR6 Mediterranean Region (2022)."
+      "section": "Part III — Volcanoes and Climate Change"
     },
     {
       "slideNumber": 23,
+      "title": "Climate change projections: temperature and precipitation",
+      "subtitle": "By 2050 and 2100, Campania is projected to get warmer, drier overall, and more prone to intense rainfall events.",
+      "textBlocks": [
+        "Interpretation for Naples: heat stress, cooling demand, drought risk, and short-duration heavy rain all increase. Stacey's climate draft adds a real-world example: the 2022 heat wave across Italy shows why Naples needs heat alerts, cooling centers, and emergency preparedness.",
+        "Stacey add-on: heat action planning"
+      ],
+      "imagePath": "/slides/Slide23.PNG",
+      "section": "Part III — Volcanoes and Climate Change",
+      "sourceOrCitationText": "Sources: Giugliano et al. (2022); IPCC AR6 Mediterranean Region (2022); Stacey draft citing Ballester et al. (2023)."
+    },
+    {
+      "slideNumber": 24,
       "title": "Climate change: sea level rise, flooding, and drought",
       "subtitle": "Naples is coastal, so climate risk includes compound flooding: sea level rise + storm surge + intense rainfall + drainage limits.",
       "textBlocks": [
         "Riverine flood risk + population",
         "Campania coastal inundation",
-        "2100 planning range: IPCC AR6 global sea-level rise is ~0.28–0.55 m under very-low emissions and ~0.63–1.01 m under very-high emissions; local Naples relative sea level also depends on vertical land movement from tectonic/volcanic processes."
-      ],
-      "imagePath": "/slides/Slide23.PNG",
-      "section": "Part III — Volcanoes and Climate Change",
-      "sourceOrCitationText": "Sources: NASA Sea Level Projection Tool / IPCC AR6 (2021–2023); Matano et al. (2021) Campania inundation scenarios; PERI-CENE Naples flood-risk map using GHSL and WRI Aqueduct data; Giugliano et al. (2022)."
-    },
-    {
-      "slideNumber": 24,
-      "title": "Part IV: Hazard Prioritization & Mitigation Plan",
-      "subtitle": "Rank the major hazards and recommend a realistic action plan for Naples city leaders.",
-      "textBlocks": [
-        "What this section answers\nWhich volcanoes and climate hazards matter most?\nWhere are the highest-exposure neighborhoods?\nWhat actions should the city prioritize first?",
-        "Naples is a multi-hazard city: tectonics, volcanoes, dense urban development, the Bay of Naples, and warming climate all overlap in one metropolitan corridor."
+        "2100 planning range for city officials: about 1-3.6 ft (0.3-1.1 m) of sea-level rise under low-to-high emissions, plus local vertical ground motion from tectonic/volcanic processes. Main impacts: port flooding, drainage backflow, storm surge, and road/utility disruption."
       ],
       "imagePath": "/slides/Slide24.PNG",
       "section": "Part IV — Prioritization and Mitigation",
-      "sourceOrCitationText": "Section framing based on De Natale et al. (2020), Civil Protection planning resources, and Campania climate projections."
+      "sourceOrCitationText": "Sources: NASA Sea Level Projection Tool / IPCC AR6; Di Paola et al. (2021); PERI-CENE Naples flood-risk map using GHSL and WRI Aqueduct data; Stacey climate draft."
     },
     {
       "slideNumber": 25,
-      "title": "Hazards assessment and prioritization algorithm",
-      "subtitle": "Hazards are ranked using a simple score that combines human and economic consequences.",
+      "title": "Mariet Young",
+      "subtitle": "Part IV: Priorities, Mitigation & Integration",
       "textBlocks": [
-        "Scoring method\nExposure: people and neighborhoods in mapped hazard area (1–5).\nHuman cost: potential deaths, injuries, evacuation, homelessness (1–5).\nEconomic disruption: port, tourism, utilities, hospitals, roads, schools (1–5).\nUrgency/probability: how likely or active the hazard is in planning timeframe (1–5).\nMaximum score = 20. This is a transparent planning tool, not an official risk model.",
-        "Priority order: 1) Campi Flegrei eruption/bradyseism, 2) major earthquake, 3) Vesuvius eruption/ash, 4) climate-driven flood/heat/drought."
+        "Turn the science into a city-council decision.",
+        "This section integrates tectonics, earthquake history, volcano risk, climate projections, exposure, and economics into one prioritized mitigation plan.",
+        "Prioritize",
+        "Rank the hazards using a transparent scoring method.",
+        "Mitigate",
+        "Recommend one integrated 10-year readiness and retrofit program.",
+        "Act",
+        "Ask the council to approve funding, inspections, and public drills.",
+        "Workflow source: Naples Hazards final briefing plan, slides 14–18; scenario values are classroom planning estimates."
       ],
       "imagePath": "/slides/Slide25.PNG",
-      "section": "Part IV — Prioritization and Mitigation",
-      "sourceOrCitationText": "Scores synthesized from sources in Parts II–III and classroom planning assumptions; inputs should be updated if the team obtains official loss-model values."
+      "section": "Part IV — Prioritization and Mitigation"
     },
     {
       "slideNumber": 26,
-      "title": "Top four hazards: people affected and human-cost estimates",
-      "subtitle": "Estimates below are scenario-based planning ranges, not official forecasts.",
+      "title": "Hazard-ranking method",
+      "subtitle": "A transparent 1–5 scoring system helps explain why these four hazards receive priority.",
       "textBlocks": [
+        "Priority score = 35% Exposure + 25% Human cost + 25% Economic disruption + 15% Urgency/probability",
+        "Exposure",
+        "35%",
+        "How many people and critical facilities are in the hazard zone?",
+        "Human cost",
+        "25%",
+        "Potential deaths, injuries, evacuation, and long-term displacement.",
+        "Economic disruption",
+        "25%",
+        "Port, hospitals, roads, tourism, housing, and business continuity.",
+        "Urgency / probability",
+        "15%",
+        "Current unrest, historical recurrence, and timeline for action.",
         "Hazard",
-        "Region / people affected",
-        "Killed / injured",
-        "Homeless / displaced",
-        "Main reason critical",
-        "Campi Flegrei eruption / bradyseism",
-        "~500k red zone; >800k ash zone",
-        "0–5k if evacuation works; catastrophic if not",
-        "~500k temporary evacuation / housing need",
-        "Very high exposure + active unrest",
-        "Major earthquake",
-        "Naples metro; >3M exposed to shaking",
-        "500–5,000 killed; 5k–30k injured",
-        "50k–250k displaced",
-        "Older masonry + soft ground + lifelines",
-        "Vesuvius eruption / ash",
-        "~700k red zone + broader ashfall area",
-        "0–5k if evacuated; higher if delayed",
-        "Hundreds of thousands evacuated",
-        "Pyroclastic flows and ash roof loads",
-        "Climate flood / heat / drought",
-        "Coastal lowlands, port, dense urban core",
-        "10–200 per major event; heat waves can be deadly",
-        "5k–50k in severe flood scenario",
-        "Increasing frequency + chronic stress",
-        "Planning assumption: strong emergency warning and evacuation greatly reduces fatalities but does not prevent displacement, economic loss, and infrastructure disruption."
+        "Exposure",
+        "Human",
+        "Economic",
+        "Urgency",
+        "Score",
+        "1. Campi Flegrei eruption/bradyseism",
+        "4.85",
+        "2. Major earthquake",
+        "4.25",
+        "3. Vesuvius eruption/ashfall",
+        "4.05",
+        "4. Climate flood/heat/drought",
+        "3.75",
+        "Scoring is a classroom planning tool: a score of 5 means highest relative concern for Naples, not a precise forecast.",
+        "Mariet Young"
       ],
       "imagePath": "/slides/Slide26.PNG",
       "section": "Part IV — Prioritization and Mitigation",
-      "sourceOrCitationText": "Sources: Civil Protection red-zone planning; De Natale et al. (2020); INGV/Smithsonian volcano profiles; CPTI15/INGV earthquake catalog; Giugliano et al. (2022). Human-cost ranges are classroom planning estimates."
+      "sourceOrCitationText": "Sources: Course risk framework; Civil Protection emergency zones; Iervolino et al. (2024); NIBS (2019)."
     },
     {
       "slideNumber": 27,
-      "title": "Economic risk: what gets interrupted?",
-      "subtitle": "The largest economic losses come from stopping the systems Naples depends on every day.",
+      "title": "Top four hazards and expected consequences",
+      "subtitle": "The ranking prioritizes hazards that combine high exposure, severe human cost, and economic interruption.",
       "textBlocks": [
-        "Port and logistics",
-        "Cargo, ferries, cruise traffic, fuel and supply chains. Low elevation and ash/flood exposure make shutdown likely.",
-        "Tourism and cultural sites",
-        "Historic center, Pompeii/Herculaneum access routes, Vesuvius and coastal tourism depend on open transport and clean air.",
-        "Hospitals, schools, utilities",
-        "Earthquake shaking, ash, power loss, water contamination, and evacuation stress can disable essential services.",
-        "Housing and small business",
-        "Dense older buildings and narrow streets increase damage, evacuation difficulty, and prolonged recovery needs.",
-        "Economic risk is concentrated along the waterfront/port, historic center, transport corridors, and volcanic red-zone neighborhoods. A multi-hazard disruption could quickly become regional, not just local."
+        "Campi Flegrei",
+        "4.85",
+        "Major earthquake",
+        "4.25",
+        "Vesuvius",
+        "4.05",
+        "Climate stress",
+        "3.75",
+        "Rank",
+        "Hazard",
+        "Science basis",
+        "Potential human impact*",
+        "Economic interruption",
+        "Campi Flegrei eruption / bradyseism",
+        "Caldera unrest, uplift, shallow earthquakes; red/yellow volcanic planning zones.",
+        "500k red-zone residents; >800k ashfall-zone residents; mass evacuation if alarm.",
+        "Port, western Naples, housing, schools, roads, utilities, tourism.",
+        "Major earthquake",
+        "Regional Apennine faults + shallow volcanic earthquakes; vulnerable older buildings.",
+        "Scenario estimate: hundreds to low thousands killed if severe; tens of thousands displaced.",
+        "Hospitals, rail/road network, historic buildings, emergency access.",
+        "Vesuvius eruption / ashfall",
+        "Stratovolcano with historic eruptions; red zone requires preventive evacuation.",
+        "~700k people in red-zone plan; ashfall may force temporary removals in yellow zone.",
+        "Roof collapse risk, airports/port disruption, tourism loss, cleanup costs.",
+        "Climate flood, heat & drought",
+        "Warmer climate, heavy-rain extremes, sea-level rise, and drainage stress.",
+        "Heat illness, flood displacement, water stress; highest risk for elderly/low-income residents.",
+        "Waterfront, port, drainage, power demand, tourism, agriculture supply chain.",
+        "*Human-impact numbers are classroom planning ranges or official evacuation-zone populations, not official fatality forecasts. Deaths can be drastically reduced when warning, evacuation, retrofit, and public drills work.",
+        "Mariet Young"
       ],
       "imagePath": "/slides/Slide27.PNG",
       "section": "Part IV — Prioritization and Mitigation",
-      "sourceOrCitationText": "Sources: MedCities Naples economic profile; Port of Naples planning/economic sources; Civil Protection emergency plans; De Natale et al. (2020)."
+      "sourceOrCitationText": "Sources: Civil Protection Department (Phlegraean and Vesuvius emergency planning maps); Iervolino et al. (2024); NIBS (2019); Part III climate sources."
     },
     {
       "slideNumber": 28,
-      "title": "Mitigation strategy: Multi-Hazard Readiness and Retrofit Program",
-      "subtitle": "One integrated plan can reduce volcanic, earthquake, flood, and climate damage at the same time.",
+      "title": "Integration: why one plan must address several hazards",
+      "subtitle": "Naples’ top hazards are connected through Earth systems, urban exposure, and shared evacuation/lifeline needs.",
       "textBlocks": [
-        "Years 1–2",
-        "Map + inspect",
-        "Update seismic microzonation; rank buildings, schools, hospitals, port assets, evacuation routes.",
-        "Years 2–5",
-        "Protect lifelines",
-        "Retrofit priority schools/hospitals; roof strengthening for ash; backup power/water; drainage upgrades.",
-        "Years 3–10",
-        "Practice + adapt",
-        "Annual evacuation drills; multilingual alerts; shelters; route management; coastal/flood adaptation projects.",
-        "Expected effectiveness\nPotentially saves thousands of lives in eruption or earthquake scenario by speeding evacuation and reducing building failure.\nReduces displacement by prioritizing retrofit of shelters, hospitals, schools, and lifeline facilities.\nReduces recovery cost by keeping port, roads, power, water, and emergency services operating.",
-        "Cost to implement\nRecommended planning budget: €1.5–2.5 billion over 10 years for assessments, retrofits, drills, shelters, drainage, and lifeline resilience.\nExpected avoided losses: plausibly €5–15+ billion in a severe event, plus faster recovery and fewer casualties.\nBegin with highest-risk public buildings and evacuation-route bottlenecks."
+        "Plate tectonics → earthquakes",
+        "Regional faults + shallow volcanic quakes create shaking, liquefaction, landslide risk.",
+        "Magma + hydrothermal systems",
+        "Campi Flegrei and Vesuvius create pyroclastic flow, ash, gas, and unrest hazards.",
+        "Topography + surface materials",
+        "Coastal fill, tuff, slopes, and dense basins amplify impacts and complicate evacuation.",
+        "Climate change + coast",
+        "Sea-level rise, heat, drought, and intense rainfall stress the same lifelines.",
+        "Integrated risk management",
+        "Same people, roads, hospitals, utilities, and warning systems are exposed to multiple hazards.",
+        "Takeaway for the council\nDo not fund separate one-hazard plans; fund a single program that upgrades buildings, routes, alerts, shelters, drills, and critical lifelines together.",
+        "Mariet Young"
       ],
       "imagePath": "/slides/Slide28.PNG",
       "section": "Part IV — Prioritization and Mitigation",
-      "sourceOrCitationText": "Mitigation plan synthesized from Civil Protection microzonation/vulnerability planning, INGV monitoring context, and classroom cost-benefit assumptions. Budget is a planning range, not an official municipal cost estimate."
+      "sourceOrCitationText": "Sources: Herman et al. (2015); Civil Protection Department emergency planning maps; Iervolino et al. (2024); IPCC/NASA sea-level sources used in Part III."
     },
     {
       "slideNumber": 29,
-      "title": "Conclusion: call for action",
-      "subtitle": "Naples should treat natural hazards as connected systems, not separate emergencies.",
+      "title": "10-year Multi-Hazard Readiness and Retrofit Program",
+      "subtitle": "One mitigation strategy that reduces losses across the top four hazards.",
       "textBlocks": [
-        "Recommended action: fund a 10-year Multi-Hazard Readiness and Retrofit Program focused first on Campi Flegrei / western Naples, critical facilities, evacuation routes, and coastal lifelines.",
-        "Why act now\nCampi Flegrei unrest and shallow earthquakes are already affecting residents.\nEarthquake and volcanic hazards overlap with dense neighborhoods and older buildings.\nClimate change increases heat, drought stress, drainage problems, and coastal/flood impacts.\nThe best mitigation work must be done before the alert level rises.",
-        "What success looks like\nClear public warning and evacuation routes for every red-zone neighborhood.\nRetrofitted priority schools, hospitals, shelters, and emergency facilities.\nProtected port, power, water, and transport lifelines.\nA city council decision process based on transparent hazard ranking and updated science."
+        "Plan description\nFocus first on Campi Flegrei/western Naples, schools, hospitals, evacuation routes, port access, and older buildings.\nCombine seismic retrofit, ash-load roof checks, flood/drainage upgrades, alerts, shelters, route signs, and annual drills.",
+        "Implementation needs\nMunicipal engineering teams\nINGV/Civil Protection coordination\nBuilding inventory database\nPublic outreach in multiple languages",
+        "Expected effectiveness\nReduces collapse risk and displacement\nShortens evacuation time\nKeeps hospitals, port access, and emergency routes functioning\nProtects residents before the alarm phase",
+        "Implementation timeline",
+        "Y1",
+        "Y2",
+        "Y3",
+        "Y4",
+        "Y5",
+        "Y6",
+        "Y7",
+        "Y8",
+        "Y9",
+        "Y10",
+        "Map + inspect high-risk buildings",
+        "Retrofit schools/hospitals/critical facilities",
+        "Protect evacuation routes, port access, utilities",
+        "Alerts, shelters, public drills, route signage",
+        "Drainage, heat shelters, backup power/water",
+        "Planning budget: €1.2–€1.8 billion over 10 years, focused on high-exposure areas first; update after engineering survey and building inventory.",
+        "Mariet Young"
       ],
       "imagePath": "/slides/Slide29.PNG",
       "section": "Part IV — Prioritization and Mitigation",
-      "sourceOrCitationText": "Conclusion based on Parts I–IV findings and the Civil Protection / INGV hazard-management framework."
+      "sourceOrCitationText": "Sources: Civil Protection rapid/emergency planning maps; Iervolino et al. (2024) on retrofitting strategy; NIBS (2019) on mitigation benefit-cost analysis."
     },
     {
       "slideNumber": 30,
-      "title": "References",
-      "subtitle": "APA-formatted sources used for Parts III and IV, plus key earlier sources.",
-      "textBlocks": [],
+      "title": "Cost-benefit and call to action",
+      "subtitle": "The highest-value decision is to invest before warning time is short.",
+      "textBlocks": [
+        "Planning estimate: what the investment buys",
+        "€1.2–1.8B",
+        "10-year readiness + retrofit program",
+        "Lives saved",
+        "Early warning + drills + retrofit",
+        "Displacement reduced",
+        "Safer buildings + shelters + routes",
+        "Economic losses avoided",
+        "Port, roads, hospitals, utilities protected",
+        "Expected risk reduction\nPreventive evacuation can keep volcanic-death totals low if residents know routes and warnings are trusted.\nRetrofitting the most critical buildings first can reduce collapse-related injuries and shelter demand.\nFlood/drainage and backup-power work protects day-to-day services and post-disaster recovery.",
+        "Decision request to city council",
+        "Approve",
+        "Start Phase 1 hazard mapping, building inventory, and priority inspections.",
+        "Fund",
+        "Create a 10-year capital program with annual progress reporting.",
+        "Practice",
+        "Require annual evacuation/shelter drills for schools, hospitals, port, and neighborhoods.",
+        "Call for action: approve Phase 1 within the next budget cycle, before the next volcanic unrest or earthquake crisis limits choices.",
+        "Mariet Young"
+      ],
       "imagePath": "/slides/Slide30.PNG",
       "section": "References",
-      "sourceOrCitationText": "Bevilacqua, A., Neri, A., Bisson, M., Esposti Ongaro, T., Flandoli, F., Isaia, R., Rosi, M., & Vitale, S. (2017). The effects of vent location, event scale, and time forecasts on pyroclastic density current hazard maps at Campi Flegrei Caldera (Italy). Frontiers in Earth Science, 5, 72. https://doi.org/10.3389/feart.2017.00072\nDe Natale, G., Troise, C., & Somma, R. (2020). The volcanoes of Naples: How can the highest volcanic risk in the world be effectively mitigated? Natural Hazards and Earth System Sciences, 20, 2037–2053. https://doi.org/10.5194/nhess-20-2037-2020\nDipartimento della Protezione Civile. (n.d.). Map of National Emergency Planning zones in the Phlegraean area. https://mappe.protezionecivile.gov.it/en/risks-maps-and-dashboards/national-planning-phlegraean-fields/\nDipartimento della Protezione Civile. (2024). National civil protection plan for volcanic risk at Vesuvius. https://www.protezionecivile.gov.it/en/approfondimento/national-civil-protection-plan-volcanic-risk-vesuvius/\nEuropean Space Agency. (2017). Vesuvius [Photograph]. https://www.esa.int/spaceinimages/Images/2017/05/Vesuvius\nGiugliano, G., et al. (2022). Climate variability and expected climate changes in Campania Region, Italy. Egusphere preprint. https://doi.org/10.5194/egusphere-2022-287\nHerman, M. W., Hayes, G. P., Smoczyk, G. M., Turner, R., Turner, B., Jenkins, J., Davies, S., Parker, A., Sinclair, A., Benz, H. M., Furlong, K. P., & Villaseñor, A. (2015). Seismicity of the Earth 1900–2013: Mediterranean Sea and vicinity (USGS Open-File Report 2010-1083-Q). U.S. Geological Survey. https://pubs.usgs.gov/publication/ofr20101083Q\nIstituto Nazionale di Geofisica e Vulcanologia. (n.d.). Campi Flegrei. https://www.ingv.it/en/campi-flegrei\nIstituto Nazionale di Geofisica e Vulcanologia. (n.d.). Ischia. https://www.ingv.it/en/ischia\nIstituto Nazionale di Geofisica e Vulcanologia. (n.d.). CPTI15–DBMI15: Parametric catalogue of Italian earthquakes and Italian macroseismic database. https://emidius.mi.ingv.it/CPTI15-DBMI15/index_en.htm\nMatano, F., et al. (2021). Sea-level rise impact and future scenarios of inundation risk along the coastal plains in Campania (Italy). Environmental Earth Sciences. https://doi.org/10.1007/s12665-021-09884-0\nNASA Sea Level Change Team. (n.d.). IPCC AR6 Sea Level Projection Tool. https://sealevel.nasa.gov/ipcc-ar6-sea-level-projection-tool\nNASA Earth Observatory. (2022). A view of Vesuvius. https://science.nasa.gov/earth/earth-observatory/a-view-of-vesuvius-149298/\nPERI-CENE. (2021). Naples riverine flood risk and population density map. https://peri-cene.net/policy-lab/naples/\nSmithsonian Institution, Global Volcanism Program. (n.d.). Campi Flegrei, Vesuvius, and Ischia volcano profiles. https://volcano.si.edu/\nU.S. Geological Survey, Yellowstone Volcano Observatory. (2023, November 6). Living with active volcanoes in the back yard of the Naples metropolitan area in Italy. https://www.usgs.gov/observatories/yvo/news/living-active-volcanoes-back-yard-naples-metropolitan-area-italy\nWorld Bank. (n.d.). Climate Change Knowledge Portal: Italy climate projections. https://climateknowledgeportal.worldbank.org/country/italy/climate-data-projections\n\nReferences include official civil-protection agencies, INGV, Smithsonian GVP, USGS/NASA/ESA, peer-reviewed or preprint scientific resources, and climate/flood-data portals."
+      "sourceOrCitationText": "Sources: Civil Protection emergency planning; Iervolino et al. (2024); National Institute of Building Sciences (2019). Budget is a classroom planning range, not an official municipal estimate."
+    },
+    {
+      "slideNumber": 31,
+      "title": "References",
+      "textBlocks": [],
+      "imagePath": "/slides/Slide31.PNG",
+      "section": "References",
+      "sourceOrCitationText": "Aiello, G. (2026). Morpho-bathymetric and seismo-stratigraphic analysis of the Bay of Naples (Southern Tyrrhenian Sea, Italy): Examples from the Naples, Sorrento, and Ischia offshore. Journal of Marine Science and Engineering, 14(11), 979. https://doi.org/10.3390/jmse14110979\nBallester, J., Quijal-Zamorano, M., Méndez Turrubiates, R. F., Pegenaute, F., Herrmann, F. R., Robine, J. M., Basagaña, X., Tonne, C., Antó, J. M., & Achebak, H. (2023). Heat-related mortality in Europe during the summer of 2022. Nature Medicine, 29, 1857–1866. https://doi.org/10.1038/s41591-023-02419-z\nClimate Central. (n.d.). Coastal Risk Screening Tool. https://coastal.climatecentral.org/\nDipartimento della Protezione Civile. (n.d.). Map of National Emergency Planning zones in the Phlegraean area. https://mappe.protezionecivile.it/en/risks-maps-and-dashboards/\nnational-planning-phlegraean-fields/\nDipartimento della Protezione Civile. (n.d.). The plan for vulnerability assessment of built-up areas affected by bradyseism in the Phlegraean Fields. https://rischi.protezionecivile.gov.it/en/volcanic/volcanoes-italy/phlegraean-fields/\nplan-vulnerability-assessment-built-areas-affected-bradyseism-phlegraean-fields/\nHelmholtz Centre Potsdam–GFZ German Research Centre for Geosciences. (2025, August 7). New findings on the volcanic structure of the Campi Flegrei near Naples. https://www.gfz.de/en/press/news/details/\nneue-erkenntnisse-zur-vulkanischen-struktur-der-phlegraeischen-felder-bei-neapel\nHerman, M. W., Hayes, G. P., Smoczyk, G. M., Turner, R., Turner, B., Jenkins, J., Davies, S., Parker, A., Sinclair, A., Benz, H. M., Furlong, K. P., & Villaseñor, A. (2015). Seismicity of the Earth 1900–2013: Mediterranean Sea and vicinity (USGS Open-File Report 2010–1083-Q). U.S. Geological Survey. https://pubs.usgs.gov/publication/ofr20101083Q\nIntergovernmental Panel on Climate Change. (2022). Figure FAQ CCP4.2.1: Mediterranean sea level projections. In Climate Change 2022: Impacts, adaptation and vulnerability. https://www.ipcc.ch/report/ar6/wg2/figures/ccp4/\nfigure-ccp4-faq-ccp4-2-1/\nIstituto Nazionale di Geofisica e Vulcanologia. (n.d.). CPTI15–DBMI15 v4.0: Parametric catalogue of Italian earthquakes and Italian macroseismic database. https://emidius.mi.ingv.it/CPTI15-DBMI15/index_en.htm\nIstituto Nazionale di Geofisica e Vulcanologia. (n.d.). Seismic surveillance service. https://www.ingv.it/en/monitoring-and-infrastructure/surveillance/seismic-surveillance-service\nIstituto Nazionale di Geofisica e Vulcanologia, Osservatorio Vesuviano. (2024). Campi Flegrei: Seismicity and ground deformation update. INGV Osservatorio Vesuviano.\nIstituto Nazionale di Geofisica e Vulcanologia, Osservatorio Vesuviano. (2025, March 13). Campi Flegrei—Mappa di scuotimento per l’evento Md 4.6 del 13.03.2025 ore 01:25:02 [Urban ShakeMap]. https://www.ov.ingv.it/index.php/monitoraggio-e-infrastrutture/segnali-in-tempo-reale/\nmappe-di-scuotimento?catid=32%3Ashaking-map&id=318%3Acampi-flegrei-mappa-di-scuotimento-per-levento-md-4-4-del-13-03-2025-ore-01-25-02&view=article\nNASA Sea Level Change Team. (n.d.). IPCC AR6 Sea Level Projection Tool. National Aeronautics and Space Administration. https://sealevel.nasa.gov/data_tools/17\nUtah Geological Survey. (n.d.). Liquefaction. https://geology.utah.gov/hazards/earthquakes/liquefaction/\nWedler, M., Pinto, J. G., & Hochman, A. (2023). More frequent, persistent, and deadly heat waves in the 21st century over the Eastern Mediterranean. Science of the Total Environment, 870, Article 161883. https://doi.org/10.1016/j.scitotenv.2023.161883\nYellowstone Volcano Observatory. (2023, November 6). Living with active volcanoes in the back yard of the Naples metropolitan area in Italy. U.S. Geological Survey. https://www.usgs.gov/observatories/yvo/news/\nliving-active-volcanoes-back-yard-naples-metropolitan-area-italy"
     }
   ]
 }
