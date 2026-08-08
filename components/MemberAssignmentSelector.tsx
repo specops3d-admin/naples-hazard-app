@@ -10,11 +10,22 @@ import {
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { StatusBadge } from "@/components/ui/StatusBadge";
+import { isValidHttpUrl } from "@/lib/slides";
+import type {
+  ChecklistDataErrorResponse,
+  ChecklistDataResponse,
+  ChecklistItem,
+} from "@/types/checklist";
 import type {
   ProjectDataErrorResponse,
   ProjectDataResponse,
   ProjectMember,
 } from "@/types/project";
+import type {
+  SourceItem,
+  SourcesDataErrorResponse,
+  SourcesDataResponse,
+} from "@/types/sources";
 import type {
   TimelineDataErrorResponse,
   TimelineDataResponse,
@@ -23,6 +34,10 @@ import type {
 
 const ALL_MEMBERS_VALUE = "all";
 const REFRESH_INTERVAL_MS = 60_000;
+
+type SettledResult<T> =
+  | { ok: true; value: T }
+  | { ok: false; error: string };
 
 function formatTimestamp(date: Date): string {
   return date.toLocaleString(undefined, {
@@ -35,6 +50,19 @@ function normalizeMatchValue(value: string): string {
   return value.trim().toLowerCase();
 }
 
+function asSettledResult<T>(
+  promise: Promise<T>,
+  fallbackMessage: string,
+): Promise<SettledResult<T>> {
+  return promise.then(
+    (value) => ({ ok: true as const, value }),
+    (reason: unknown) => ({
+      ok: false as const,
+      error: reason instanceof Error ? reason.message : fallbackMessage,
+    }),
+  );
+}
+
 function getTimelineItemsForMember(
   member: ProjectMember,
   timeline: TimelineItem[],
@@ -44,6 +72,30 @@ function getTimelineItemsForMember(
 
   return timeline.filter(
     (item) => normalizeMatchValue(item.owner) === memberKey,
+  );
+}
+
+function getChecklistItemsForMember(
+  member: ProjectMember,
+  checklist: ChecklistItem[],
+): ChecklistItem[] {
+  const memberKey = normalizeMatchValue(member.member_name);
+  if (!memberKey) return [];
+
+  return checklist.filter(
+    (item) => normalizeMatchValue(item.owner) === memberKey,
+  );
+}
+
+function getSourceItemsForMember(
+  member: ProjectMember,
+  sources: SourceItem[],
+): SourceItem[] {
+  const memberKey = normalizeMatchValue(member.member_name);
+  if (!memberKey) return [];
+
+  return sources.filter(
+    (item) => normalizeMatchValue(item.assigned_to) === memberKey,
   );
 }
 
@@ -85,12 +137,54 @@ async function fetchTimelineItems(): Promise<TimelineItem[]> {
   return payload.timeline;
 }
 
+async function fetchChecklistItems(): Promise<ChecklistItem[]> {
+  const response = await fetch("/api/checklist-data", { cache: "no-store" });
+  const payload = (await response.json()) as
+    | ChecklistDataResponse
+    | ChecklistDataErrorResponse;
+
+  if (!response.ok) {
+    throw new Error(
+      "error" in payload ? payload.error : "Unable to load checklist data.",
+    );
+  }
+
+  if (!("checklist" in payload)) {
+    throw new Error("Unable to load checklist data.");
+  }
+
+  return payload.checklist;
+}
+
+async function fetchSourceItems(): Promise<SourceItem[]> {
+  const response = await fetch("/api/sources-data", { cache: "no-store" });
+  const payload = (await response.json()) as
+    | SourcesDataResponse
+    | SourcesDataErrorResponse;
+
+  if (!response.ok) {
+    throw new Error(
+      "error" in payload ? payload.error : "Unable to load sources data.",
+    );
+  }
+
+  if (!("sources" in payload)) {
+    throw new Error("Unable to load sources data.");
+  }
+
+  return payload.sources;
+}
+
 function MemberCard({
   member,
   timelineItems,
+  checklistItems,
+  sourceItems,
 }: {
   member: ProjectMember;
   timelineItems: TimelineItem[];
+  checklistItems: ChecklistItem[];
+  sourceItems: SourceItem[];
 }) {
   return (
     <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -185,6 +279,109 @@ function MemberCard({
           </ul>
         )}
       </section>
+
+      <section className="mt-6 border-t border-slate-100 pt-5">
+        <h4 className="font-[family-name:var(--font-display)] text-base font-semibold text-[var(--brand-navy)]">
+          Checklist Responsibilities
+        </h4>
+        {checklistItems.length === 0 ? (
+          <p className="mt-3 text-sm text-slate-600">
+            No checklist items are currently assigned to this member.
+          </p>
+        ) : (
+          <ul className="mt-3 space-y-3">
+            {checklistItems.map((item, index) => (
+              <li
+                key={`${item.category}-${item.checklist_item}-${index}`}
+                className="rounded-lg bg-slate-50 px-4 py-3"
+              >
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p className="font-medium text-[var(--brand-navy)]">
+                      {item.checklist_item || "Untitled checklist item"}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500">
+                      {item.category || "Uncategorized"}
+                    </p>
+                  </div>
+                  <StatusBadge status={item.status} />
+                </div>
+                <dl className="mt-3 grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
+                  <div>
+                    <dt className="font-medium text-slate-500">
+                      Evidence / slides
+                    </dt>
+                    <dd className="mt-0.5">{item.evidence_slides || "—"}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-slate-500">
+                      Notes / fix needed
+                    </dt>
+                    <dd className="mt-0.5">
+                      {item.notes_fix_needed || "No notes"}
+                    </dd>
+                  </div>
+                </dl>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <section className="mt-6 border-t border-slate-100 pt-5">
+        <h4 className="font-[family-name:var(--font-display)] text-base font-semibold text-[var(--brand-navy)]">
+          Source Responsibilities
+        </h4>
+        {sourceItems.length === 0 ? (
+          <p className="mt-3 text-sm text-slate-600">
+            No sources are currently assigned to this member.
+          </p>
+        ) : (
+          <ul className="mt-3 space-y-3">
+            {sourceItems.map((item, index) => (
+              <li
+                key={`${item.source_organization}-${item.url}-${index}`}
+                className="rounded-lg bg-slate-50 px-4 py-3"
+              >
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p className="font-medium text-[var(--brand-navy)]">
+                      {item.source_organization || "Untitled source"}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500">
+                      {item.section || "Section not set"}
+                    </p>
+                  </div>
+                  <StatusBadge status={item.verification_status} />
+                </div>
+                <dl className="mt-3 grid gap-2 text-sm text-slate-700">
+                  <div>
+                    <dt className="font-medium text-slate-500">Primary use</dt>
+                    <dd className="mt-0.5">{item.primary_use || "—"}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-slate-500">URL</dt>
+                    <dd className="mt-0.5">
+                      {isValidHttpUrl(item.url) ? (
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="break-all font-medium text-[var(--brand-accent)] underline decoration-amber-300 underline-offset-2 hover:text-amber-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-navy)]"
+                        >
+                          {item.url}
+                        </a>
+                      ) : (
+                        item.url || "No valid URL"
+                      )}
+                    </dd>
+                  </div>
+                </dl>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </article>
   );
 }
@@ -204,6 +401,8 @@ function MemberAssignmentSelectorInner() {
   );
   const [members, setMembers] = useState<ProjectMember[]>([]);
   const [timeline, setTimeline] = useState<TimelineItem[]>([]);
+  const [checklist, setChecklist] = useState<ChecklistItem[]>([]);
+  const [sources, setSources] = useState<SourceItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
@@ -223,49 +422,60 @@ function MemberAssignmentSelectorInner() {
     let cancelled = false;
 
     async function loadAssignmentData() {
-      const [projectResult, timelineResult] = await Promise.all([
-        fetchProjectMembers().then(
-          (value) => ({ ok: true as const, value }),
-          (reason: unknown) => ({
-            ok: false as const,
-            error:
-              reason instanceof Error
-                ? reason.message
-                : "Unable to load project data.",
-          }),
-        ),
-        fetchTimelineItems().then(
-          (value) => ({ ok: true as const, value }),
-          (reason: unknown) => ({
-            ok: false as const,
-            error:
-              reason instanceof Error
-                ? reason.message
-                : "Unable to load timeline data.",
-          }),
-        ),
-      ]);
+      const [projectResult, timelineResult, checklistResult, sourcesResult] =
+        await Promise.all([
+          asSettledResult(
+            fetchProjectMembers(),
+            "Unable to load project data.",
+          ),
+          asSettledResult(
+            fetchTimelineItems(),
+            "Unable to load timeline data.",
+          ),
+          asSettledResult(
+            fetchChecklistItems(),
+            "Unable to load checklist data.",
+          ),
+          asSettledResult(fetchSourceItems(), "Unable to load sources data."),
+        ]);
 
       if (cancelled) return;
 
       const errors: string[] = [];
+      let anySuccess = false;
 
       if (projectResult.ok) {
         setMembers(projectResult.value);
+        anySuccess = true;
       } else {
         errors.push(projectResult.error);
       }
 
       if (timelineResult.ok) {
         setTimeline(timelineResult.value);
+        anySuccess = true;
       } else {
         errors.push(timelineResult.error);
+      }
+
+      if (checklistResult.ok) {
+        setChecklist(checklistResult.value);
+        anySuccess = true;
+      } else {
+        errors.push(checklistResult.error);
+      }
+
+      if (sourcesResult.ok) {
+        setSources(sourcesResult.value);
+        anySuccess = true;
+      } else {
+        errors.push(sourcesResult.error);
       }
 
       if (errors.length === 0) {
         setError(null);
         setLastUpdated(new Date());
-      } else if (projectResult.ok || timelineResult.ok) {
+      } else if (anySuccess) {
         setError(errors.join(" "));
         setLastUpdated(new Date());
       } else {
@@ -477,6 +687,8 @@ function MemberAssignmentSelectorInner() {
             key={member.member_id}
             member={member}
             timelineItems={getTimelineItemsForMember(member, timeline)}
+            checklistItems={getChecklistItemsForMember(member, checklist)}
+            sourceItems={getSourceItemsForMember(member, sources)}
           />
         ))}
       </div>

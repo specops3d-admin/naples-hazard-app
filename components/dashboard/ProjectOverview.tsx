@@ -7,13 +7,24 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import { summarizeProject } from "@/lib/project-summary";
 import {
   averageProgressFromStatuses,
+  countByStatus,
   normalizeStatus,
 } from "@/lib/status";
+import type {
+  ChecklistDataErrorResponse,
+  ChecklistDataResponse,
+  ChecklistItem,
+} from "@/types/checklist";
 import type {
   ProjectDataErrorResponse,
   ProjectDataResponse,
   ProjectMember,
 } from "@/types/project";
+import type {
+  SourceItem,
+  SourcesDataErrorResponse,
+  SourcesDataResponse,
+} from "@/types/sources";
 import type {
   TimelineDataErrorResponse,
   TimelineDataResponse,
@@ -29,6 +40,10 @@ const QUICK_LINKS = [
   { href: "/sources", label: "Sources" },
 ] as const;
 
+type SettledResult<T> =
+  | { ok: true; value: T }
+  | { ok: false; error: string };
+
 function formatTimestamp(date: Date): string {
   return date.toLocaleString(undefined, {
     dateStyle: "medium",
@@ -40,8 +55,28 @@ function isCompleteStatus(status: string): boolean {
   return normalizeStatus(status) === "Complete";
 }
 
+function isVerifiedStatus(status: string): boolean {
+  const normalized = normalizeStatus(status);
+  return (
+    normalized === "Complete" || normalized.toLowerCase() === "verified"
+  );
+}
+
 function getIncompleteTimelineItems(timeline: TimelineItem[]): TimelineItem[] {
   return timeline.filter((item) => !isCompleteStatus(item.status));
+}
+
+function asSettledResult<T>(
+  promise: Promise<T>,
+  fallbackMessage: string,
+): Promise<SettledResult<T>> {
+  return promise.then(
+    (value) => ({ ok: true as const, value }),
+    (reason: unknown) => ({
+      ok: false as const,
+      error: reason instanceof Error ? reason.message : fallbackMessage,
+    }),
+  );
 }
 
 async function fetchProjectMembers(): Promise<ProjectMember[]> {
@@ -82,10 +117,50 @@ async function fetchTimelineItems(): Promise<TimelineItem[]> {
   return payload.timeline;
 }
 
+async function fetchChecklistItems(): Promise<ChecklistItem[]> {
+  const response = await fetch("/api/checklist-data", { cache: "no-store" });
+  const payload = (await response.json()) as
+    | ChecklistDataResponse
+    | ChecklistDataErrorResponse;
+
+  if (!response.ok) {
+    throw new Error(
+      "error" in payload ? payload.error : "Unable to load checklist data.",
+    );
+  }
+
+  if (!("checklist" in payload)) {
+    throw new Error("Unable to load checklist data.");
+  }
+
+  return payload.checklist;
+}
+
+async function fetchSourceItems(): Promise<SourceItem[]> {
+  const response = await fetch("/api/sources-data", { cache: "no-store" });
+  const payload = (await response.json()) as
+    | SourcesDataResponse
+    | SourcesDataErrorResponse;
+
+  if (!response.ok) {
+    throw new Error(
+      "error" in payload ? payload.error : "Unable to load sources data.",
+    );
+  }
+
+  if (!("sources" in payload)) {
+    throw new Error("Unable to load sources data.");
+  }
+
+  return payload.sources;
+}
+
 export function ProjectOverview() {
   const headingId = useId();
   const [members, setMembers] = useState<ProjectMember[]>([]);
   const [timeline, setTimeline] = useState<TimelineItem[]>([]);
+  const [checklist, setChecklist] = useState<ChecklistItem[]>([]);
+  const [sources, setSources] = useState<SourceItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
@@ -94,49 +169,60 @@ export function ProjectOverview() {
     let cancelled = false;
 
     async function loadDashboardData() {
-      const [projectResult, timelineResult] = await Promise.all([
-        fetchProjectMembers().then(
-          (value) => ({ ok: true as const, value }),
-          (reason: unknown) => ({
-            ok: false as const,
-            error:
-              reason instanceof Error
-                ? reason.message
-                : "Unable to load project data.",
-          }),
-        ),
-        fetchTimelineItems().then(
-          (value) => ({ ok: true as const, value }),
-          (reason: unknown) => ({
-            ok: false as const,
-            error:
-              reason instanceof Error
-                ? reason.message
-                : "Unable to load timeline data.",
-          }),
-        ),
-      ]);
+      const [projectResult, timelineResult, checklistResult, sourcesResult] =
+        await Promise.all([
+          asSettledResult(
+            fetchProjectMembers(),
+            "Unable to load project data.",
+          ),
+          asSettledResult(
+            fetchTimelineItems(),
+            "Unable to load timeline data.",
+          ),
+          asSettledResult(
+            fetchChecklistItems(),
+            "Unable to load checklist data.",
+          ),
+          asSettledResult(fetchSourceItems(), "Unable to load sources data."),
+        ]);
 
       if (cancelled) return;
 
       const errors: string[] = [];
+      let anySuccess = false;
 
       if (projectResult.ok) {
         setMembers(projectResult.value);
+        anySuccess = true;
       } else {
         errors.push(projectResult.error);
       }
 
       if (timelineResult.ok) {
         setTimeline(timelineResult.value);
+        anySuccess = true;
       } else {
         errors.push(timelineResult.error);
+      }
+
+      if (checklistResult.ok) {
+        setChecklist(checklistResult.value);
+        anySuccess = true;
+      } else {
+        errors.push(checklistResult.error);
+      }
+
+      if (sourcesResult.ok) {
+        setSources(sourcesResult.value);
+        anySuccess = true;
+      } else {
+        errors.push(sourcesResult.error);
       }
 
       if (errors.length === 0) {
         setError(null);
         setLastUpdated(new Date());
-      } else if (projectResult.ok || timelineResult.ok) {
+      } else if (anySuccess) {
         setError(errors.join(" "));
         setLastUpdated(new Date());
       } else {
@@ -212,6 +298,29 @@ export function ProjectOverview() {
     .map((item) => item.approval_handoff.trim())
     .filter(Boolean)
     .slice(0, 4);
+
+  const checklistStatusCounts = countByStatus(
+    checklist.map((item) => item.status),
+  );
+  const incompleteChecklist = checklist.filter(
+    (item) => !isCompleteStatus(item.status),
+  );
+  const checklistCompletion = averageProgressFromStatuses(
+    checklist.map((item) => item.status),
+  );
+  const nextIncompleteChecklistItems = incompleteChecklist.slice(0, 4);
+
+  const verifiedSources = sources.filter((source) =>
+    isVerifiedStatus(source.verification_status),
+  ).length;
+  const sourcesNeedingVerification = Math.max(
+    sources.length - verifiedSources,
+    0,
+  );
+  const verificationPercentage =
+    sources.length === 0
+      ? 0
+      : Math.round((verifiedSources / sources.length) * 100);
 
   return (
     <section className="space-y-6" aria-labelledby={headingId}>
@@ -529,6 +638,191 @@ export function ProjectOverview() {
                 </dd>
               </div>
             </dl>
+          </div>
+        )}
+      </section>
+
+      <section aria-labelledby="checklist-summary-heading">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h3
+              id="checklist-summary-heading"
+              className="font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--brand-navy)]"
+            >
+              Checklist
+            </h3>
+            <p className="mt-1 text-sm text-slate-600">
+              Compact summary from the Merge Checklist sheet.
+            </p>
+          </div>
+          <Link
+            href="/checklist"
+            className="text-sm font-semibold text-[var(--brand-accent)] underline decoration-amber-300 underline-offset-2 hover:text-amber-950"
+          >
+            Open full checklist
+          </Link>
+        </div>
+
+        {checklist.length === 0 ? (
+          <div className="mt-4 rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-sm">
+            <p className="text-sm text-slate-600">
+              No checklist items are available from the current sheet refresh.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+              <article className="rounded-lg bg-slate-50 px-4 py-3 sm:col-span-2 lg:col-span-1">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Checklist completion
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {checklistCompletion}%
+                </p>
+                <div className="mt-2">
+                  <ProgressBar
+                    value={checklistCompletion}
+                    label="Checklist completion"
+                  />
+                </div>
+              </article>
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Total items
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {checklist.length}
+                </p>
+              </article>
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Complete
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {checklistStatusCounts.complete}
+                </p>
+              </article>
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Incomplete
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {incompleteChecklist.length}
+                </p>
+              </article>
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Needs revision
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {checklistStatusCounts.needsRevision}
+                </p>
+              </article>
+            </div>
+
+            <div className="mt-5">
+              <h4 className="text-sm font-semibold text-slate-700">
+                Next incomplete checklist items
+              </h4>
+              {nextIncompleteChecklistItems.length > 0 ? (
+                <ul className="mt-3 divide-y divide-slate-100 rounded-lg border border-slate-100">
+                  {nextIncompleteChecklistItems.map((item, index) => (
+                    <li
+                      key={`${item.category}-${item.checklist_item}-${index}`}
+                      className="flex flex-col gap-2 px-3 py-3 sm:flex-row sm:items-center sm:justify-between"
+                    >
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium text-[var(--brand-navy)]">
+                          {item.checklist_item || "Untitled checklist item"}
+                        </p>
+                        <p className="mt-1 text-xs text-slate-500">
+                          {item.category || "Uncategorized"}
+                          {item.owner ? ` · ${item.owner}` : ""}
+                        </p>
+                      </div>
+                      <StatusBadge status={item.status} />
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="mt-2 text-sm text-slate-600">
+                  All checklist items are complete.
+                </p>
+              )}
+            </div>
+          </div>
+        )}
+      </section>
+
+      <section aria-labelledby="sources-summary-heading">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h3
+              id="sources-summary-heading"
+              className="font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--brand-navy)]"
+            >
+              Sources
+            </h3>
+            <p className="mt-1 text-sm text-slate-600">
+              Compact summary from the Source Tracker sheet.
+            </p>
+          </div>
+          <Link
+            href="/sources"
+            className="text-sm font-semibold text-[var(--brand-accent)] underline decoration-amber-300 underline-offset-2 hover:text-amber-950"
+          >
+            Open full sources
+          </Link>
+        </div>
+
+        {sources.length === 0 ? (
+          <div className="mt-4 rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-sm">
+            <p className="text-sm text-slate-600">
+              No sources are available from the current sheet refresh.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Total sources
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {sources.length}
+                </p>
+              </article>
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Verified sources
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {verifiedSources}
+                </p>
+              </article>
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Requiring verification
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {sourcesNeedingVerification}
+                </p>
+              </article>
+              <article className="rounded-lg bg-slate-50 px-4 py-3">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Verification percentage
+                </h4>
+                <p className="mt-2 text-2xl font-semibold text-[var(--brand-navy)]">
+                  {verificationPercentage}%
+                </p>
+                <div className="mt-2">
+                  <ProgressBar
+                    value={verificationPercentage}
+                    label="Source verification percentage"
+                  />
+                </div>
+              </article>
+            </div>
           </div>
         )}
       </section>
