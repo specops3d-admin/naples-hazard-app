@@ -79,7 +79,7 @@
       "Reuse and condense the existing Naples draft instead of rebuilding every slide.",
       "Every content slide needs a readable visual, a one-sentence takeaway, and an author-year citation at the bottom.",
       "Use plain language appropriate for city council members; explain scientific terms briefly.",
-      "Member 5 merges the deck after each section is marked Ready for Review or Complete."
+      "The project lead merges the deck after each section is marked Ready for Review or Complete."
     ]
   },
   "taskAssignments": {
@@ -93,7 +93,7 @@
         "requiredContent": "Explain Africa/Nubia–Eurasia convergence, Adriatic/Apulian microplate influence, boundary style, Naples topography, and how the setting produces earthquake and volcanic hazards.",
         "visualsRequired": "Plate map; Naples regional map showing Campi Flegrei, Vesuvius, Gulf of Naples, and Apennines.",
         "deliverable": "Three polished slides with concise speaker notes and citations.",
-        "dependenciesHandoff": "Send Member 2 the tectonic explanation and base-map labels; send Member 5 the one-sentence Part I takeaway.",
+        "dependenciesHandoff": "Send Member 2 the tectonic explanation and base-map labels; send the project lead the one-sentence Part I takeaway.",
         "status": "Not Started",
         "priority": "High",
         "progress": 0,
@@ -108,7 +108,7 @@
         "requiredContent": "Combine earthquake type/location/magnitude/frequency, faults, surface materials, shaking amplification, liquefaction, landslides, coastal water hazards, population exposure, and economic consequences.",
         "visualsRequired": "IRIS/EarthScope seismicity map; fault map; geology/ground-response map; exposure symbols.",
         "deliverable": "Three polished slides with one map-led message per slide and citations.",
-        "dependenciesHandoff": "Use Member 1 tectonic setting. Provide Member 5 with earthquake score inputs and loss assumptions.",
+        "dependenciesHandoff": "Use Member 1 tectonic setting. Provide the project lead with earthquake score inputs and loss assumptions.",
         "status": "Not Started",
         "priority": "High",
         "progress": 0,
@@ -123,7 +123,7 @@
         "requiredContent": "Cover Campi Flegrei, Vesuvius, and Ischia; volcano type/location; photos; eruption history; 100-year probability outlook; hazards; red/yellow zones; exposed population and disaster cost.",
         "visualsRequired": "Volcano location map; Vesuvius and Campi Flegrei images; eruption timeline; evacuation-zone map.",
         "deliverable": "Three polished slides comparing the three volcanic systems.",
-        "dependenciesHandoff": "Provide Member 5 with volcanic priority scores, population figures, and mitigation needs.",
+        "dependenciesHandoff": "Provide the project lead with volcanic priority scores, population figures, and mitigation needs.",
         "status": "Not Started",
         "priority": "High",
         "progress": 0,
@@ -138,7 +138,7 @@
         "requiredContent": "Present 2050 and 2100 temperature/precipitation projections with confidence ranges; sea-level-rise range; compound coastal flooding; drought/heat impacts; implications for the port, drainage, health, utilities, and tourism.",
         "visualsRequired": "Climate projection graph/map; coastal inundation/flood map; impact pathway diagram.",
         "deliverable": "Three polished slides connecting projections directly to Naples neighborhoods and infrastructure.",
-        "dependenciesHandoff": "Provide Member 5 with climate hazard score inputs, affected areas, and realistic mitigation actions.",
+        "dependenciesHandoff": "Provide the project lead with climate hazard score inputs, affected areas, and realistic mitigation actions.",
         "status": "Not Started",
         "priority": "High",
         "progress": 0,
@@ -386,7 +386,7 @@
         "action": "Review assigned draft slides and verify maps, figures, facts, and image credits.",
         "requiredOutput": "Source list and missing-data notes.",
         "dependsOn": "Kickoff",
-        "approvalHandoff": "Member 5 checks gaps.",
+        "approvalHandoff": "The project lead checks gaps.",
         "status": "Not Started",
         "progress": 0
       },
@@ -438,10 +438,10 @@
         "phase": "Final section handoff",
         "targetDay": "Day 7",
         "owner": "Members 1–4",
-        "action": "Submit corrected slides, source list, and image credits to Member 5.",
+        "action": "Submit corrected slides, source list, and image credits to the project lead.",
         "requiredOutput": "Section marked Complete.",
         "dependsOn": "Cross-review",
-        "approvalHandoff": "Member 5 accepts or returns it.",
+        "approvalHandoff": "The project lead accepts or returns it.",
         "status": "Not Started",
         "progress": 0
       },
@@ -463,7 +463,7 @@
         "action": "Run through the deck for 10 minutes; simplify technical terms and cut unnecessary text.",
         "requiredOutput": "Final 10-minute version.",
         "dependsOn": "Deck merge",
-        "approvalHandoff": "Member 5 locks slide order.",
+        "approvalHandoff": "The project lead locks slide order.",
         "status": "Not Started",
         "progress": 0
       },

@@ -49,20 +49,19 @@ export function getOverallCompletion(workflow: WorkflowData = getWorkflow()) {
 }
 
 export function getPriorityHazards(presentation: PresentationData = getPresentation()) {
-  const slide26 = presentation.slides.find((s) => s.slideNumber === 26);
-  const slide25 = presentation.slides.find((s) => s.slideNumber === 25);
+  const rankingSlide = presentation.slides.find((s) =>
+    s.title.toLowerCase().includes("top four hazards"),
+  );
+  const methodSlide = presentation.slides.find((s) =>
+    s.title.toLowerCase().includes("hazard-ranking method"),
+  );
 
-  const priorityOrder =
-    slide25?.textBlocks
-      .find((block) => block.toLowerCase().includes("priority order"))
-      ?.replace(/^Priority order:\s*/i, "") ?? "";
-
-  const blocks = slide26?.textBlocks ?? [];
+  const blocks = rankingSlide?.textBlocks ?? [];
   const hazardNames = [
     "Campi Flegrei eruption / bradyseism",
     "Major earthquake",
-    "Vesuvius eruption / ash",
-    "Climate flood / heat / drought",
+    "Vesuvius eruption / ashfall",
+    "Climate flood, heat & drought",
   ].filter((name) => blocks.includes(name));
 
   return hazardNames.map((name, index) => {
@@ -70,14 +69,18 @@ export function getPriorityHazards(presentation: PresentationData = getPresentat
     return {
       rank: index + 1,
       name,
-      peopleAffected: start >= 0 ? blocks[start + 1] ?? "" : "",
+      // Final-deck layout: science basis, human impact, economic interruption.
+      peopleAffected: start >= 0 ? blocks[start + 2] ?? "" : "",
       killedInjured: start >= 0 ? blocks[start + 2] ?? "" : "",
       displaced: start >= 0 ? blocks[start + 3] ?? "" : "",
-      whyCritical: start >= 0 ? blocks[start + 4] ?? "" : "",
-      estimateNote: slide26?.subtitle ?? "",
-      sourceNote: slide26?.sourceOrCitationText ?? "",
-      priorityOrder,
-      slideNumber: 26,
+      whyCritical: start >= 0 ? blocks[start + 1] ?? "" : "",
+      estimateNote: rankingSlide?.subtitle ?? "",
+      sourceNote: rankingSlide?.sourceOrCitationText ?? "",
+      priorityOrder:
+        methodSlide?.textBlocks.find((block) =>
+          block.toLowerCase().includes("priority score"),
+        ) ?? "",
+      slideNumber: rankingSlide?.slideNumber ?? 0,
     };
   });
 }

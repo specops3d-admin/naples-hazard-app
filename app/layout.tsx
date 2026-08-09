@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Naples Hazards Assessment",
   },
   description:
-    "Interactive project dashboard for the Naples, Italy Hazards Assessment city-council presentation.",
+    "Live project dashboard for the Naples, Italy Hazards Assessment city-council presentation.",
 };
 
 export default function RootLayout({

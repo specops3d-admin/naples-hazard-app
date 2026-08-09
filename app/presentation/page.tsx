@@ -16,9 +16,9 @@ export default function PresentationPage() {
   return (
     <div className="space-y-10">
       <PageHeader
-        eyebrow="City council briefing"
-        title="Naples Hazards Assessment"
-        description="The final presentation deck for the Naples, Italy Hazards Assessment. Click a slide to open a larger accessible view with previous/next controls."
+        eyebrow="Final Presentation"
+        title="Naples, Italy Hazards Assessment"
+        description="Browse the final city-council presentation. Click a slide to open a larger accessible view with previous/next controls."
       />
 
       <EstimateNotice />
@@ -29,12 +29,12 @@ export default function PresentationPage() {
             id="final-presentation-title"
             className="font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--brand-navy)]"
           >
-            Final Presentation
+            Final presentation slides
           </h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600">
-            Gallery of the final presentation ({slideCount}{" "}
-            {slideCount === 1 ? "slide" : "slides"}). Click a slide image to open
-            a larger accessible modal with previous/next controls.
+            {slideCount} {slideCount === 1 ? "slide" : "slides"} from the final
+            presentation. Click a slide image to open a larger accessible modal
+            with previous/next controls.
           </p>
           <p className="mt-2 text-sm">
             <Link

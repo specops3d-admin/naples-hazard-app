@@ -19,14 +19,15 @@ export default function HomePage() {
             Naples, Italy Hazards Assessment
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
-            {workflow.teamDashboard.subtitle}
+            Live project dashboard for the Naples, Italy Hazards Assessment
+            city-council presentation.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/presentation"
               className="inline-flex rounded-md bg-amber-500 px-4 py-2.5 text-sm font-semibold text-slate-950 hover:bg-amber-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200"
             >
-              Open final slide plan
+              View Final Presentation
             </Link>
             <Link
               href="/hazards"
@@ -68,8 +69,8 @@ export default function HomePage() {
               Priority hazards
             </h2>
             <p className="mt-1 text-sm text-slate-600">
-              Ranked in the working deck (slide 25–26) using a classroom
-              planning score, not an official risk model.
+              Ranked in the final presentation using a classroom planning score,
+              not an official risk model.
             </p>
           </div>
           <Link
@@ -101,9 +102,6 @@ export default function HomePage() {
                   <dd>{hazard.whyCritical}</dd>
                 </div>
               </dl>
-              <p className="mt-4 text-xs text-slate-500">
-                Working slide {hazard.slideNumber}
-              </p>
             </article>
           ))}
         </div>
@@ -118,25 +116,23 @@ export default function HomePage() {
             <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
               Audience
             </dt>
-            <dd className="mt-1 text-sm text-slate-800">{summary.audience}</dd>
+            <dd className="mt-1 text-sm text-slate-800">
+              Naples City Council; assume no prior scientific knowledge
+            </dd>
           </div>
           <div>
             <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
               Final product
             </dt>
-            <dd className="mt-1 text-sm text-slate-800">{summary.finalProduct}</dd>
-          </div>
-          <div>
-            <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Target length
-            </dt>
-            <dd className="mt-1 text-sm text-slate-800">{summary.targetLength}</dd>
+            <dd className="mt-1 text-sm text-slate-800">
+              Final Naples Hazards Assessment presentation
+            </dd>
           </div>
           <div>
             <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
               Assigned city
             </dt>
-            <dd className="mt-1 text-sm text-slate-800">{summary.assignedCity}</dd>
+            <dd className="mt-1 text-sm text-slate-800">Naples, Italy</dd>
           </div>
         </dl>
         <div className="mt-6">
@@ -144,7 +140,7 @@ export default function HomePage() {
             href="/presentation"
             className="inline-flex rounded-md bg-[var(--brand-navy)] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[var(--brand-steel)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-navy)]"
           >
-            Go to the 18-slide final plan
+            View Final Presentation
           </Link>
         </div>
       </section>
