@@ -61,12 +61,12 @@ export function SlideGallery({ slides }: { slides: PresentationSlide[] }) {
               type="button"
               className="group scroll-mt-28 overflow-hidden rounded-xl border border-slate-200 bg-white text-left shadow-sm transition-colors hover:border-[var(--brand-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-navy)]"
               onClick={() => setActiveIndex(index)}
-              aria-label={`Open larger view of working slide ${slide.slideNumber}: ${slide.title}`}
+              aria-label={`Open larger view of slide ${slide.slideNumber}: ${slide.title}`}
             >
               <div className="relative aspect-[16/9] bg-slate-100">
                 <Image
                   src={src}
-                  alt={`Working slide ${slide.slideNumber}: ${slide.title}`}
+                  alt={`Slide ${slide.slideNumber}: ${slide.title}`}
                   fill
                   className="object-contain"
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -104,7 +104,7 @@ export function SlideGallery({ slides }: { slides: PresentationSlide[] }) {
                   id={titleId}
                   className="font-[family-name:var(--font-display)] text-lg font-semibold"
                 >
-                  Working slide {activeSlide.slideNumber}: {activeSlide.title}
+                  Slide {activeSlide.slideNumber}: {activeSlide.title}
                 </p>
                 <p id={descId} className="mt-1 text-sm text-slate-600">
                   {activeSlide.section}
@@ -125,7 +125,7 @@ export function SlideGallery({ slides }: { slides: PresentationSlide[] }) {
               <div className="relative mx-auto aspect-[16/9] max-h-[60vh] w-full">
                 <Image
                   src={getSlideImagePath(activeSlide.slideNumber)}
-                  alt={`Enlarged working slide ${activeSlide.slideNumber}: ${activeSlide.title}`}
+                  alt={`Enlarged slide ${activeSlide.slideNumber}: ${activeSlide.title}`}
                   fill
                   className="object-contain"
                   sizes="100vw"

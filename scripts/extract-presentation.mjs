@@ -19,7 +19,7 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 
 const PREFERRED_PPTX =
-  "Naples_Hazards_Assessment_Final_PartsIII_IV(3).pptx";
+  "Final_Presentation.pptx";
 const FALLBACK_PPTX = "Naples_Hazards_Assessment_Final_PartsIII_IV.pptx";
 
 const SECTION_RULES = [
