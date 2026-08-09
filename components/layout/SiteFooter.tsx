@@ -7,7 +7,9 @@ export function SiteFooter() {
           city-council audience.
         </p>
         <p className="text-slate-500">
-          Source data from the group workflow workbook and working slide deck.
+        Project tracking data synchronized from the shared Google Sheet.
+        <br />
+        Presentation content from the final Naples Hazards Assessment deck.
         </p>
       </div>
     </footer>
